@@ -56,3 +56,4 @@ async function loadGames() {
     throwError("Error Loading Games: " + err.message);
   }
 }
+loadGames();
