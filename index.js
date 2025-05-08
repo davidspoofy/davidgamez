@@ -1,4 +1,4 @@
-const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy/"
+const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/"
 
 async function generateGameCode(gameID) {
   try {
