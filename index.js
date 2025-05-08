@@ -1,55 +1,58 @@
-const express = require('express');
-const path = require('path');
+const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy/"
 
-const app = express();
-const port = process.env.PORT || 3000;
+async function generateGameCode(gameID) {
+  try {
+    var res = await fetch(REPO + "semag/" + gameID + "/index.html");
+    if (res.ok) {
+    	return(modifyHTML(await res.text(), gameID));
+    } else {
+    	throwError("Error Fetching Game - Error Code " + res.status);
+    }
+  } catch (err) {
+    ThrowError("Error Fetching Game: " + err.message)
+  }
+}
 
+function modifyHTML(code, gameID) {
+	var code = code.replace('<head>', `<head><base href="${ REPO + "semag/" + gameID }/">`);
+  code = code.replace(/(href|src)="\/([^"]*)"/g, (match, attr, path) => {
+    return `${attr}="${ REPO + path }"`;
+  });
+	return code;
+}
 
-app.use(express.static(__dirname));
+function throwError(error) {
+	alert(error);
+}
 
-app.get('/projects', (req, res) => {
-  res.sendFile(path.join(__dirname, 'projects.html'));
-});
+async function openGame(gameID) {
+var htmlCode = await generateGameCode(gameID);
+var win = window.open("about:blank");
+win.document.open();
+win.document.write(htmlCode);
+win.document.close();
+}
 
-app.get('/bookmarklets', (req, res) => {
-  res.sendFile(path.join(__dirname, 'bookmarklets.html'));
-});
+async function loadGames() {
+  try {
+    const res = await fetch(REPO + "data/games.json");
+    if (!res.ok) throw new Error("Failed to fetch games list");
+    const games = await res.json();
 
-app.get('/settings', (req, res) => {
-  res.sendFile(path.join(__dirname, 'settings.html'));
-});
+    const gameList = document.createElement("ul");
+    games.forEach(game => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = "#";
+      link.textContent = game.name;
+      link.onclick = () => openGame(game.directory);
+      listItem.appendChild(link);
+      gameList.appendChild(listItem);
+    });
 
-app.get('/support', (req, res) => {
-  res.sendFile(path.join(__dirname, 'support.html'));
-});
-
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'about.html'));
-});
-
-app.get('/transfer', (req, res) => {
-  res.sendFile(path.join(__dirname, 'transfer.html'));
-});
-
-app.get('/suggest', (req, res) => {
-  res.sendFile(path.join(__dirname, 'suggest.html'));
-});
-
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'contact.html'));
-});
-
-app.get('/ad', (req, res) => {
-  res.sendFile(path.join(__dirname, 'ad.html'));
-});
-
-app.get('/blank', (req, res) => {
-  res.sendFile(path.join(__dirname, 'blank.html'));
-});
-app.get('/backgrounds', (req, res) => {
-  res.sendFile(path.join(__dirname, 'backgrounds.html'));
-});
-
-app.listen(port, () => {
-  console.log(`Selenite is running on port ${port}`);
-});
+    document.getElementById("loading").remove();
+    document.body.appendChild(gameList);
+  } catch (err) {
+    throwError("Error Loading Games: " + err.message);
+  }
+}
