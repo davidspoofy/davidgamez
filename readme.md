@@ -1,6 +1,7 @@
 # Data URL Games
 ## About
 This is a data:text/html URL that lets you play games. The only website it depends on being unblocked is data url's (ofc) and jsdelivr (usually unblocked because it is a widely used cdn). 
+Note that not all games work since data urls don't support features like cookies, local storage, etc.
 ## How to use
 Simply go to this URL in your browser:
 ```
