@@ -2,13 +2,45 @@
 <html lang="en">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Freeman&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" content="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
     <title>gams</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1 id="loading">Loading Gams...</h1>
+    <div class="loading-cover">
+        <div class="loading-text">
+            Loading...
+        </div>
+    </div>
+    <main>
+        <span class="title">GA</span><span class="title">MES</span><br>
+        <input type="text" placeholder="Search" id="games-search-bar" class="w3-input w3-round-large search-bar"
+            oninput="searchGames(this)">
+        <div class="pages"><b class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows()">
+                < LAST</b><b class="page-number">1</b><b class="switch-page"
+                        onclick="currentPage += 1; setGames(currentPage); setPageArrows()">NEXT ></b></div>
+        <div id="games-container">
+            <h1>LOADING...</h1>
+        </div>
+        <div class="pages"><b class="switch-page"
+                onclick="currentPage -= 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">
+                < LAST</b><b class="page-number">1</b><b class="switch-page"
+                        onclick="currentPage += 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">NEXT
+                        ></b></div>
+    </main>
 
-    <script src="https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/index.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/index.js"></script>-->
+    <script src="index.js"></script>
 </body>
 
 </html>
