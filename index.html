@@ -11,915 +11,616 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
     <title>taz's school</title>
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy/styles.css?cb=123">-->
     <style>
-      :root {
-    --primary: #1e3a8a;      /* Deep blue */
-    --gradient: #6366f1;     /* Soft indigo */
-    --secondary: #22223b;    /* Dark slate */
-    --text: #e0e1dd;         /* Light gray */
-    --effects: #a5b4fc;      /* Light indigo for glows/shadows */
-    --h1: #d9ecf3;           /* Warm gold for headings */
+:root {
+    --primary: #1a1a2e;
+    --secondary: #16213e;
+    --accent: #0f3460;
+    --highlight: #e94560;
+    --text: #f1f1f1;
+    --text-dim: #b8b8b8;
+    --glow: 0 0 15px rgba(233, 69, 96, 0.7);
+    --glow-intense: 0 0 30px rgba(233, 69, 96, 0.9);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #000000;
-    height: 100%;
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    background: radial-gradient(ellipse at bottom, #0d0d1a 0%, #000000 100%);
+    color: var(--text);
     margin: 0;
     padding: 0;
-    color: #e0e0e0;
+    min-height: 100vh;
     overflow-x: hidden;
-    transition: background-color 0.3s ease;
+    position: relative;
+    line-height: 1.6;
     scroll-behavior: smooth;
-    position: relative;
-    z-index: 1;
 }
 
-::selection {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-#nprogress .bar {
-    background: #ffffff !important;
-    z-index: 99999 !important;
-    box-shadow: 0 0 60px #ffffffcc, 0 0 90px #ffffff99, 0 0 150px #ffffff66 !important;
-}
-
-#nprogress .peg {
-    box-shadow: 0 0 100px #ffffffcc, 0 0 150px #ffffff99, 0 0 200px #ffffff66 !important;
-}
-
-#nprogress .spinner-icon {
-    border-top-color: #ffffff !important;
-    border-left-color: #ffffff !important;
-}
-
-#waves {
-    font-size: 19px;
-    color: #ffffff;
-    display: inline-block;
-    text-align: left;
-    margin: 1px 80px 0 10px;
-    white-space: nowrap;
-    cursor: default;
-    transition: all 0.3s ease;
-}
-
-.home-navbar {
-    transform: translateX(-50%);
-    width: 670px;
-    top: 1%;
-    margin-bottom: -10px;
-    margin-left: 50%;
-    background-color: #08080894;
-    border: 1px solid #ffffff21;
-    height: 35px;
-    color: #818181;
-    padding: 10px;
-    animation: fadeIn 2s ease;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    z-index: 1001;
-    backdrop-filter: blur(5px);
-    border-radius: 25px;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.home-navbar .favicon {
-    width: 24px;
-    height: 24px;
-    margin-right: -10px;
-    vertical-align: middle;
-}
-
-.home-navbar a {
-    color: #e6e6e6;
-    text-decoration: none;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 300;
-    border-radius: 5px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.home-navbar a:hover {
-    font-size: 16px;
-}
-
-.home-navbar a:active {
-    font-size: 12px;
-}
-
-.home-navbar i {
-    color: #ffffff; 
-    margin-right: -15px;
-    margin-left: 115px;
-}
-
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-track {
-    background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #4e4e4e;
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #6b6b6b;
-}
-
-.navbar {
-    top: 1%;
-    background-color: #1111119c;
-    backdrop-filter: blur(10px);
-    border: 1px solid #ffffff1a;
-    left: 50%;
-    width: 1180px;
-    max-width: 100%;
-    display: none;
-    border-radius: 25px;
-    align-items: center;
-    overflow: hidden;
-    position: fixed;
-    z-index: 999;
-    animation: fadeIn 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.navbar ul,
-.nav-buttons {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.navbar li {
-    padding: 10px -10px;
-    margin-left: 4px;
-    font-size: 20px;
-    font-weight: bold;
-    position: relative;
-}
-
-.nav-buttons a i {
-    border-radius: 25px;
-    font-size: 20px;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar a {
-    display: block;
-    color: #ffffff;
-    text-align: center;
-    padding: 16px;
-    transform-origin: center;
-    text-decoration: none;
-    border-radius: 50%;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-
-.navbar a:hover {
-    transform: scale(1.2);
-}
-
-.navbar a:active {
-    transform: scale(0.9);
-}
-
-.navbar a.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.spin {
-    animation: spin 0.3s ease-in-out;
-    transform: rotate(720deg);
-    transform-origin: center;
-}
-
-.small-searchbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 700px;
-}
-
-.small-searchbar input[type=text] {
-    padding: 14px;
-    width: 90%;
-    border: 1px solid #ffffff1a;
-    background-color: #30303071;
-    border-radius: 20px;
-    color: #b9b9b9;
-    font-size: 15px;
-    text-align: left;
-    text-indent: 0.5em;
-    outline: none;
-    transition: 0.5s;
-}
-
-.small-searchbar input[type=text]:focus,
-.small-searchbar input[type=text]:hover {
-    border: 1px solid #ffffff69;
-}
-
-.small-searchbar input[type=text]::placeholder {
-    color: #818181;
-}
-
-.shortcut-indicator-2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(calc(-50% + 300px), -50%);
-    font-size: 12px;
-    font-weight: 500;
-    color: #000000;
-    background-color: #c4c4c4;
-    padding: 2px 6px;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.shortcut-indicator-2:hover {
-    background-color: #ffffff;
-}
-
-#lockIcon {
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    font-size: 20px;
-    transform: translateY(-50%);
-    color: #ffffff;
-}
-
-.search-container {
-    position: relative;
-    margin-top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 2s ease;
-    text-align: center;
-    width: 90%;
-}
-
-.search-title {
-    font-size: 80px;
-    font-weight: bolder;
-    text-align: center;
-    display: inline-block;
-    background: linear-gradient(-45deg, #4e4e4e, #ffffff);
-    -webkit-background-clip: text;
-            background-clip: text;
-    -webkit-text-fill-color: transparent;
-            color: transparent;
-    cursor: default;
-    transition: all 0.3s ease;
-}  
-
-.search-title span {
-    display: inline-block;
-    background: inherit;
-    -webkit-background-clip: text;
-            background-clip: text;
-    -webkit-text-fill-color: transparent;
-            color: transparent;
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: fadeInFromLeft 0.5s ease-in-out forwards;
-}
-
-.search-bar {
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    margin: 0 auto;
-    position: relative;
-}
-
-.search-bar input[type=text] {
-    padding: 18px 18px 18px 40px;
-    z-index: 999;
-    width: 500px;
-    max-width: 100%;
-    background-image: url('/assets/images/icons/search.png');
-    background-size: 35px 35px;
-    background-position: 10px center;
-    background-repeat: no-repeat;
-    border-radius: 25px;
-    color: #e0e0e0;
-    font-size: 16px;
-    border: 1px solid #ffffff1a;
-    background-color: #08080894;
-    backdrop-filter: blur(20px);
-    text-indent: 0.5em;
-    outline: none;
-    transition: width 0.8s ease, opacity 0.5s ease-out, background-color 0.5s ease, border-color 0.3s ease;
-}
-
-.search-bar input[type=text]:focus,
-.search-bar input[type=text]:hover {
-    border: 1px solid #ffffff69;
-}
-
-.search-bar input[type=text]::placeholder {
-    color: #ffffff69;
-}
-
-.shortcut-indicator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(calc(-50% + 235px), -50%);
-    font-size: 12px;
-    font-weight: 500;
-    color: #000000;
-    background-color: #c4c4c4;
-    padding: 2px 6px;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.shortcut-indicator:hover {
-    background-color: #ffffff;
-}
-
-#erudaLoadingScreen {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #000000d5;
-    backdrop-filter: blur(6px);
-    color: #ffffff;
-    font-size: 3em;
-    z-index: 10000;
-    border-radius: 20px;
-    padding: 30px;
-    display: none;
-}
-
-.container {
-    float: right;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding-top: 50px;
-    text-align: center;
-}
-
-#urlInput:focus {
-    width: 40%;
-    top: 0;
-    transform: translate(-50%, 0%);
-}
-
-::placeholder {
-    color: #e0e0e0;
-}
-
-.iframe {
+/* Cosmic Background */
+body::before {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000;
-    border: none;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(233, 69, 96, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(21, 101, 192, 0.15) 0%, transparent 25%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.5"/></svg>') repeat;
+    z-index: -3;
+    animation: twinkle 20s linear infinite;
 }
 
-.hover-link {
-    color: #949494;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.hover-link:hover {
-    color: #dadada;
-}
-
-#pingDisplay {
-    position: fixed;
-    margin-top: -46px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    color: #888888;
-    cursor: default;
-    animation: fadeIn 2s ease;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
-    z-index: -1;
-    text-align: center;
-}
-
-#pingDisplay:hover {
-    color: #b6b6b6;
-}
-
+/* God Rays Effect */
 .god-rays {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 750px;
-    --stripes: repeating-linear-gradient(100deg, #ffffffcc 0%, #ffffffcc 7%, transparent 10%, transparent 12%, #ffffffcc 16%);
-    --rays: repeating-linear-gradient(100deg, #ffffffe6 10%, #e6e6e6e6 15%, #ffffffe6 20%, #e6e6e6e6 25%, #ffffffe6 30%);
-    background-image: var(--stripes), var(--rays);
-    background-size: 300%, 200%;
-    background-position: 50% 50%, 50% 50%;
-    animation: fadeIn 2s ease;
-    mask-image: radial-gradient(ellipse at 100% 0%, transparent 40%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, white 40%, transparent 70%);
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0) 80%,
+        rgba(255, 255, 255, 0.03) 100%
+    );
+    z-index: -2;
     pointer-events: none;
-    z-index: -1;
+    animation: ray-movement 120s linear infinite;
+}
+
+.god-rays::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(233, 69, 96, 0.2) 0%,
+        rgba(233, 69, 96, 0.1) 40%,
+        transparent 70%
+    );
+    transform: rotate(30deg);
+    animation: ray-rotation 240s linear infinite;
 }
 
 .god-rays::after {
-    content: "";
+    content: '';
     position: absolute;
-    inset: 0;
-    background-image: var(--stripes), var(--rays);
-    background-size: 200%, 100%;
-    animation: god-rays 40s linear infinite;
-    background-attachment: fixed;
-    mix-blend-mode: difference;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 52, 96, 0.3) 0%,
+        transparent 50%,
+        rgba(233, 69, 96, 0.3) 100%
+    );
+    mix-blend-mode: overlay;
 }
 
-#overlay {
+/* Particle Effects */
+.particles {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0000001f;
-    backdrop-filter: blur(10px);
-    z-index: 999998;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    animation: fadeInOverlay 0.3s ease-in-out forwards;
+    z-index: -1;
+    pointer-events: none;
 }
 
-#namePrompt {
-    position: fixed;
-    font-family: 'Inter', sans-serif;
-    top: 46%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #08080894;
-    border: 1px solid #ffffff21;
-    color: #e0e0e0;
-    padding: 25px 30px;
-    border-radius: 20px;
-    width: 350px;
-    z-index: 999999;
-    backdrop-filter: blur(10px);
-    font-family: 'Poppins', sans-serif;
-    text-align: left;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-out;
-    animation: fadeInPrompt 0.3s ease-in-out forwards;
-}
-
-#namePrompt .input-container label {
-    display: block;
-    font-size: 20px;
-    color: #e0e0e0;
-    font-weight: 500;
-    text-align: left;
-}
-
-.input-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.input-wrapper::before {
-    content: "\f007";
-    font-family: "Font Awesome 6 Pro";
-    font-weight: 400;
+.particle {
     position: absolute;
-    right: -15px;
-    left: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float-up linear infinite;
+}
+
+/* Main Content */
+main {
+    padding: 120px 5% 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 6rem;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #e94560, #0f3460, #e94560);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 40px;
+    text-align: center;
+    letter-spacing: 3px;
+    animation: gradient-shift 8s linear infinite;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #e94560, transparent);
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    z-index: 10;
+}
+
+.search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 20px 30px 20px 70px;
+    font-size: 1.2rem;
+    background: rgba(10, 10, 20, 0.7);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 50px;
+    color: var(--text);
+    outline: none;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: var(--highlight);
+    box-shadow: var(--glow);
+    background: rgba(15, 15, 30, 0.9);
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.search-bar::before {
+    content: '\f002';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 30px;
     top: 50%;
     transform: translateY(-50%);
-    color: #6d6d6d;
-    pointer-events: none;
-    transition: all 0.3s ease;
+    color: var(--highlight);
+    font-size: 1.5rem;
+    z-index: 2;
 }
 
-.input-wrapper:hover::before,
-.input-wrapper:focus-within::before {
-    font-weight: 900;
-    color: #ffffff;
-}
-
-.input-container input {
-    width: 100%;
-    max-width: 280px;
-    padding: 14px;
-    padding-left: 30px;
-    background-color: #08080894;
-    background-size: 25px 25px;
-    background-position: 10px center;
-    background-repeat: no-repeat;
-    border: 1px solid #ffffff1a;
-    color: #ffffff;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 15px;  
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.input-container input::placeholder {
-    color: #6d6d6d;
-}
-
-.input-container input:hover,
-.input-container input:focus {
-    border-color: #ffffff69;
-}
-
-.input-container button {
-    padding: 10px;
-    background-color: #ffffff;
-    border: 2px solid #ffffff1a;
-    color: #000000;
-    font-size: 18px;
-    border-radius: 15px;
-    width: 120px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.input-container button:hover {
-    background-color: #cfcfcf;
-}
-
-.input-container button:disabled {
-    opacity: 0.6;
-    cursor: default;
-}
-
-#greeting {
-    font-size: 19px;
-    color: #888888;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 2s ease;
-    opacity: 0;
-    transition: all 0.3s ease;
-    cursor: default;
-    z-index: -1;
-}
-
-#greeting:hover {
-    color: #b6b6b6;
-}
-
-#namePrompt.fade-out {
-    animation: fadeOutPrompt 0.3s ease-in-out forwards;
-}
-
-.loading-cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(30, 42, 138, 0.7); /* dim with primary color */
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    pointer-events: all;
-    display: none;
-}
-
-.loading-text {
-    color: var(--h1);
-    font-family: "Poppins", "Noto Sans", sans-serif;
-    font-size: 3em;
+.shortcut-indicator {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(233, 69, 96, 0.2);
+    color: var(--highlight);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: 600;
-    background: rgba(34, 34, 59, 0.85);
-    padding: 1em 2em;
-    border-radius: 12px;
-    box-shadow: 0 0 30px var(--effects);
-    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(233, 69, 96, 0.3);
 }
 
-.pages {
-    color: var(--text);
-    margin-bottom: 1vh;
+.shortcut-indicator:hover {
+    background: rgba(233, 69, 96, 0.4);
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
 }
 
-.switch-page {
-    margin: 2vh;
-    cursor: pointer;
-}
-
+/* Games Grid */
 .game-container {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    padding: 0;
-}
-
-.game-row {
-    display: block;
-    margin: 0;
-    height: 16vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
 .game {
-    display: inline-block;
-    width: 14vw;
-    padding: 5px;
-    margin: 1vw;
-    background-color: var(--secondary);
-    border-radius: 10px;
-    height: 12vw;
+    position: relative;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border-radius: 15px;
     overflow: hidden;
-    transition-duration: 0.2s;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(233, 69, 96, 0.1);
+    cursor: pointer;
 }
 
 .game:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px var(--effects);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: var(--glow-intense);
+    border-color: rgba(233, 69, 96, 0.5);
+}
+
+.game::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(233, 69, 96, 0.1) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(21, 101, 192, 0.1) 100%
+    );
+    pointer-events: none;
+}
+
+.game-image-container {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
 }
 
 .game-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-    max-width: 100%;
-    max-height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
 }
 
-.game-image-container {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 65%;
-    cursor: pointer;
+.game:hover .game-image {
+    transform: scale(1.1);
 }
 
-.game-title { 
-    font-size: 1.25vw;
-    padding: 0.25vw;
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    cursor: pointer;
-    color: var(--text);
-}
-
-main {
+.game-title {
+    padding: 15px;
+    font-weight: 600;
     text-align: center;
-    height: calc(100vh - 80px);
     margin: 0;
-    overflow-y: scroll;
+    color: var(--text);
+    font-size: 1.1rem;
+    transition: var(--transition);
 }
 
-.title {
-    font-family: "Noto Sans", sans-serif;
-    font-weight: 300;
-    font-size: 7em;
-    margin: 1vh;
-    color: var(--h1);
-    margin-left: 0;
-    margin-right: 0;
+.game:hover .game-title {
+    color: var(--highlight);
 }
 
-@keyframes show-proxy-div {
-    from {
-        bottom: -100vh;
-        top: 100vh;
-    }
-    to {
-        bottom: 0;
-        top: 0;
-    }
+/* Pagination */
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
 }
 
-@keyframes hide-proxy-div {
-    from {
-        bottom: 0;
-        top: 0;
-        display: block;
-    }
-    to {
-        bottom: -100vh;
-        top: 100vh;
-        display: block;
-    }
+.page-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--highlight);
+    min-width: 40px;
+    text-align: center;
 }
 
-.hide-proxy-div {
-    display: none;
+.switch-page {
+    padding: 10px 25px;
+    background: rgba(233, 69, 96, 0.2);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.switch-page:hover {
+    background: rgba(233, 69, 96, 0.4);
+    color: var(--text);
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+}
+
+/* Loading Screen */
+.loading-cover {
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    animation-name: hide-proxy-div;
-    animation-duration: 0.5s;
-    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 20, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
 }
 
-.show-proxy-div {
-    display: block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    animation-name: show-proxy-div;
-    animation-duration: 0.5s;
-    z-index: 10;
+.loading-text {
+    font-size: 3rem;
+    font-weight: 700;
+    color: transparent;
+    background: linear-gradient(90deg, #e94560, #0f3460, #e94560);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-shift 3s linear infinite;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+    position: relative;
 }
 
-#uv-frame {
-    height: 100vh;
-    width: 100vw;
-    border: none;
+.loading-text::after {
+    content: '...';
+    position: absolute;
+    animation: loading-dots 1.5s infinite steps(3);
 }
 
-@keyframes fadeInFromLeft {
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0d1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#e94560, #0f3460);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(#ff5c77, #1a56b4);
+}
+
+/* Selection */
+::selection {
+    background: var(--highlight);
+    color: white;
+}
+
+/* Animations */
+@keyframes gradient-shift {
     0% {
-        opacity: 0;
-        transform: translateX(-50px);
+        background-position: 0% center;
     }
     100% {
-        opacity: 1;
-        transform: translateX(0);
+        background-position: 200% center;
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInOverlay {
+@keyframes ray-movement {
     0% {
-        opacity: 0;
+        transform: translateX(0) translateY(0);
     }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInPrompt {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-@keyframes fadeOutPrompt {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes god-rays {
-    from {
-        background-position: 50% 50%, 50% 50%;
-    }
-    to {
-        background-position: 350% 50%, 350% 50%;
-    }
-}
-
-@keyframes swing {
-    0%, 100% {
-        transform: rotate(3deg);
+    25% {
+        transform: translateX(-5%) translateY(5%);
     }
     50% {
-        transform: rotate(-3deg);
+        transform: translateX(5%) translateY(-5%);
     }
-}
-
-@keyframes steamLarge {
-    0% {
-        stroke-dashoffset: 13;
-        opacity: 0.6;
+    75% {
+        transform: translateX(-5%) translateY(5%);
     }
     100% {
-        stroke-dashoffset: 39;
-        opacity: 0;
+        transform: translateX(0) translateY(0);
     }
 }
 
-@keyframes steamSmall {
+@keyframes ray-rotation {
+    0% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(390deg);
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
     10% {
-        stroke-dashoffset: 9;
-        opacity: 0.6;
+        opacity: 1;
     }
-    80% {
-        stroke-dashoffset: 27;
-        opacity: 0;
+    90% {
+        opacity: 1;
     }
     100% {
-        stroke-dashoffset: 27;
+        transform: translateY(-100px) scale(1);
         opacity: 0;
     }
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
+@keyframes loading-dots {
+    0%, 20% {
+        content: '.';
     }
-    100% {
-        transform: rotate(360deg);
+    40% {
+        content: '..';
+    }
+    60%, 100% {
+        content: '...';
     }
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .title {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+    
+    .game-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .game-image-container {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .search-bar input[type="text"] {
+        padding: 15px 15px 15px 50px;
+        font-size: 1rem;
+    }
+    
+    .search-bar::before {
+        left: 20px;
+        font-size: 1.2rem;
+    }
+    
+    .shortcut-indicator {
+        right: 15px;
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+    
+    .game-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    
+    .game-image-container {
+        height: 100px;
+    }
+    
+    .game-title {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    
+    .pages {
+        gap: 10px;
+    }
+    
+    .switch-page {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dynamic Particle Creation */
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.body.appendChild(particlesContainer);
+    
+    const particleCount = Math.floor(window.innerWidth / 10);
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 3 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 20;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+window.addEventListener('load', createParticles);
+window.addEventListener('resize', () => {
+    document.querySelector('.particles')?.remove();
+    createParticles();
+});
     </style>
 </head>
 
 <body>
+    <div class="god-rays"></div>
     <div class="loading-cover">
         <div class="loading-text">
-            Loading...
+            Loading
         </div>
     </div>
     <main>
-        <span class="title">GA</span><span class="title">MES</span><br>
-        <input type="text" placeholder="Search" id="games-search-bar" class="w3-input w3-round-large search-bar"
-            oninput="searchGames(this)">
-        <div class="pages"><b class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows()">
-                < LAST</b><b class="page-number">1</b><b class="switch-page"
-                        onclick="currentPage += 1; setGames(currentPage); setPageArrows()">NEXT ></b></div>
-        <div id="games-container">
+        <h1 class="title">GAMES</h1>
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="Search for games..." id="games-search-bar" oninput="searchGames(this)">
+                <div class="shortcut-indicator">Ctrl + K</div>
+            </div>
+        </div>
+        <div class="pages">
+            <div class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows()">
+                &lt; LAST
+            </div>
+            <div class="page-number">1</div>
+            <div class="switch-page" onclick="currentPage += 1; setGames(currentPage); setPageArrows()">
+                NEXT &gt;
+            </div>
+        </div>
+        <div id="games-container" class="game-container">
             <h1>LOADING...</h1>
         </div>
-        <div class="pages"><b class="switch-page"
-                onclick="currentPage -= 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">
-                < LAST</b><b class="page-number">1</b><b class="switch-page"
-                        onclick="currentPage += 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">NEXT
-                        ></b></div>
+        <div class="pages">
+            <div class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">
+                &lt; LAST
+            </div>
+            <div class="page-number">1</div>
+            <div class="switch-page" onclick="currentPage += 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">
+                NEXT &gt;
+            </div>
+        </div>
     </main>
 
-    <!--<script src="https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy/index.js?cb=123"></script>-->
-    <!--<script src="index.js"></script>-->
     <script>
         var lazyLoad = new LazyLoad();
 
@@ -977,7 +678,6 @@ async function openGame(gameID) {
 }
 
 async function loadGames() {
-  //try {
   const res = await fetch(REPO + "data/games.json");
   if (!res.ok) throw new Error("Failed to fetch games list");
   const games = await res.json();
@@ -986,29 +686,13 @@ async function loadGames() {
   currentPage = 0;
   setPageArrows();
   setGames(0);
-  /*const gameList = document.createElement("ul");
-  games.forEach(game => {
-    const listItem = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = "#";
-    link.textContent = game.name;
-    link.onclick = () => openGame(game.directory);
-    listItem.appendChild(link);
-    gameList.appendChild(listItem);
-  });
-
-  document.getElementById("loading").remove();
-  document.body.appendChild(gameList);*/
-  //} catch (err) {
-  //  throwError("Error Loading Games: " + err.message);
-  //}
 }
 
 function getGameHTML(game) {
   return (`
   <div class="game" onclick="openGame('${game["directory"]}')">
     <div class="game-image-container">
-      <img class="game-image lazy" src="${REPO + "semag/" + game["directory"] + "/" + game["image"]}">
+      <img class="game-image lazy" data-src="${REPO + "semag/" + game["directory"] + "/" + game["image"]}" alt="${game["name"]}">
     </div>
     <p class="game-title">
       ${game["name"]}
@@ -1018,14 +702,12 @@ function getGameHTML(game) {
 }
 
 function setGames(page) {
-  var html = '<div class="game-row">';
+  var html = '';
   for (var i = page * pageSize; i < searchedGamesJson.length; i++) {
     html += getGameHTML(searchedGamesJson[i]);
-    if (((1 + i) - (page * pageSize)) % 5 == 0) html += '</div><div class="game-row">';
-    if (i - (page * pageSize) == pageSize - 1) break;
+    if (i - (page * pageSize) === pageSize - 1) break;
   }
-  gamesDiv.innerHTML = html + '</div>';
-  if (!gamesDiv.childNodes[gamesDiv.childNodes.length - 1].hasChildNodes()) gamesDiv.childNodes[gamesDiv.childNodes.length - 1].remove();
+  gamesDiv.innerHTML = html;
   lazyLoad.update();
 }
 
@@ -1034,7 +716,7 @@ function searchGames(e) {
   setPageArrows();
   games = []
   for (var i = 0; i < gamesJson.length; i++) {
-    if (gamesJson[i]["name"].toLowerCase().search(e.value.toLowerCase()) != -1) games.push(gamesJson[i]);
+    if (gamesJson[i]["name"].toLowerCase().includes(e.value.toLowerCase())) games.push(gamesJson[i]);
   }
   searchedGamesJson = games;
   setPageArrows();
@@ -1042,28 +724,49 @@ function searchGames(e) {
 }
 
 function setPageArrows() {
-  var maxPage = getPageCount() - 1;
+  var maxPage = Math.ceil(searchedGamesJson.length / pageSize) - 1;
   if (currentPage < 0) currentPage = 0;
   if (currentPage > maxPage) currentPage = maxPage;
+  
   var pageNumbers = document.getElementsByClassName("page-number");
-  pageNumbers[0].innerHTML = currentPage + 1;
-  pageNumbers[1].innerHTML = currentPage + 1;
+  for (var i = 0; i < pageNumbers.length; i++) {
+    pageNumbers[i].innerHTML = currentPage + 1;
+  }
+  
   var btns = document.getElementsByClassName("switch-page");
-  if (currentPage == 0) { btns[0].style.visibility = "hidden"; btns[2].style.visibility = "hidden" } else { btns[0].style.visibility = "visible"; btns[2].style.visibility = "visible" };
-  if (currentPage == maxPage) { btns[1].style.visibility = "hidden"; btns[3].style.visibility = "hidden" } else { btns[1].style.visibility = "visible"; btns[3].style.visibility = "visible" };
-}
-
-function getPageCount() {
-  return Math.ceil(searchedGamesJson.length / pageSize);
+  var disabledStyle = "opacity: 0.5; pointer-events: none;";
+  
+  for (var i = 0; i < btns.length; i++) {
+    if (currentPage === 0) {
+      btns[i].style.cssText = i % 2 === 0 ? disabledStyle : "";
+    } else if (currentPage === maxPage) {
+      btns[i].style.cssText = i % 2 !== 0 ? disabledStyle : "";
+    } else {
+      btns[i].style.cssText = "";
+    }
+  }
 }
 
 function scrollToTopOfGames() {
-  document.getElementsByClassName("main-div")[0].scroll({ top: 0, left: 0, behavior: "instant" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-loadGames();
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  loadGames();
+  hideLoading();
+  
+  // Create particles
+  createParticles();
+});
 
+// Keyboard shortcut for search
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    document.getElementById('games-search-bar').focus();
+  }
+});
     </script>
 </body>
-
 </html>
