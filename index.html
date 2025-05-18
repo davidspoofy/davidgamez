@@ -681,7 +681,14 @@ footer {
     </footer>
 
     <script>
-        var lazyLoad = new LazyLoad();
+        var lazyLoad = new LazyLoad({
+            elements_selector: ".lazy",
+            load_delay: 300,
+            callback_loaded: function(el) {
+                el.parentNode.classList.add('loaded');
+            }
+        });
+        
 var gamesJson = [];
 var searchedGamesJson = [];
 var currentPage = 0;
@@ -755,7 +762,7 @@ function getGameHTML(game, index) {
   return (`
   <div class="game" onclick="openGame('${game["directory"]}')" style="animation-delay: ${index * 0.05}s">
     <div class="game-image-container">
-      <img class="game-image lazy" data-src="${REPO + "semag/" + game["directory"] + "/" + game["image"]}" alt="${game["name"]}">
+      <img class="game-image lazy" data-src="${REPO + "semag/" + game["directory"] + "/" + game["image"]}" alt="${game["name"]}" loading="eager">
     </div>
     <p class="game-title">
       ${game["name"]}
@@ -773,9 +780,13 @@ function setGames(page) {
     if (i - (page * pageSize) === pageSize - 1) break;
   }
   gamesDiv.innerHTML = html;
+  
   setTimeout(() => {
     lazyLoad.update();
-  }, 2000);
+    document.querySelectorAll('.lazy').forEach(img => {
+      img.src = img.dataset.src;
+    });
+  }, 100);
 }
 
 function searchGames(e) {
