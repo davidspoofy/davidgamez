@@ -185,25 +185,6 @@ main {
     filter: blur(1px);
 }
 
-.recent-section {
-    margin-bottom: 30px;
-}
-
-.section-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    color: var(--highlight);
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section-title i {
-    font-size: 1.5rem;
-}
-
 footer {
     background: rgba(10, 10, 20, 0.7);
     padding: 15px 0;
@@ -666,12 +647,6 @@ footer {
                 <div class="shortcut-indicator"><i class="fas fa-keyboard"></i> Ctrl + K</div>
             </div>
         </div>
-
-        <div id="recent-games-container" class="recent-section" style="display: none;">
-            <h2 class="section-title"><i class="fas fa-clock"></i> Continue Playing</h2>
-            <div class="game-container" id="recent-games"></div>
-        </div>
-
         <div class="pages">
             <div class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows()">
                 <i class="fas fa-arrow-left"></i> LAST
@@ -721,7 +696,6 @@ var currentPage = 0;
 var gamesDiv = document.getElementById("games-container")
 const pageSize = 50;
 const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/";
-var preloadedPages = {};
 
 function showLoading() {
   document.getElementsByClassName("loading-cover")[0].style.display = "flex";
@@ -729,45 +703,6 @@ function showLoading() {
 
 function hideLoading() {
   document.getElementsByClassName("loading-cover")[0].style.display = "none";
-}
-
-function addRecentGame(gameID) {
-    let recentGames = JSON.parse(localStorage.getItem('recentGames') || [];
-    recentGames = recentGames.filter(id => id !== gameID);
-    recentGames.unshift(gameID);
-    if (recentGames.length > 5) recentGames.pop();
-    localStorage.setItem('recentGames', JSON.stringify(recentGames));
-    showRecentGames();
-}
-
-function showRecentGames() {
-    const recentGamesContainer = document.getElementById('recent-games-container');
-    const recentGamesList = document.getElementById('recent-games');
-    const recentGames = JSON.parse(localStorage.getItem('recentGames')) || [];
-    
-    if (recentGames.length === 0) {
-        recentGamesContainer.style.display = 'none';
-        return;
-    }
-    
-    recentGamesContainer.style.display = 'block';
-    let html = '';
-    
-    recentGames.forEach(gameID => {
-        const game = gamesJson.find(g => g.directory === gameID);
-        if (game) {
-            html += getGameHTML(game, 0);
-        }
-    });
-    
-    recentGamesList.innerHTML = html;
-    
-    setTimeout(() => {
-        lazyLoad.update();
-        document.querySelectorAll('.lazy').forEach(img => {
-            img.src = img.dataset.src;
-        });
-    }, 100);
 }
 
 async function generateGameCode(gameID) {
@@ -794,7 +729,6 @@ function throwError(error) {
 async function openGame(gameID) {
   showLoading();
   try {
-    addRecentGame(gameID);
     var htmlCode = await generateGameCode(gameID);
     var win = window.open("about:blank");
     win.document.open();
@@ -808,19 +742,6 @@ async function openGame(gameID) {
   hideLoading();
 }
 
-function preloadNextPage() {
-    const nextPage = currentPage + 1;
-    if (preloadedPages[nextPage] || nextPage * pageSize >= searchedGamesJson.length) return;
-    
-    preloadedPages[nextPage] = true;
-    setTimeout(() => {
-        let html = '';
-        for (let i = nextPage * pageSize; i < Math.min((nextPage + 1) * pageSize, searchedGamesJson.length); i++) {
-            html += getGameHTML(searchedGamesJson[i], i % pageSize);
-        }
-    }, 1000);
-}
-
 async function loadGames() {
   const res = await fetch(REPO + "data/games.json");
   if (!res.ok) throw new Error("Failed to fetch games list");
@@ -830,7 +751,6 @@ async function loadGames() {
   currentPage = 0;
   setPageArrows();
   setGames(0);
-  showRecentGames();
   
   const quotes = document.querySelectorAll('.quote');
   const randomQuote = Math.floor(Math.random() * quotes.length);
@@ -867,7 +787,6 @@ function setGames(page) {
     document.querySelectorAll('.lazy').forEach(img => {
       img.src = img.dataset.src;
     });
-    preloadNextPage();
   }, 100);
 }
 
