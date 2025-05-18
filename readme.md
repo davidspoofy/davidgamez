@@ -1,10 +1,39 @@
-# Data URL Games
-## About
-This is a data:text/html URL that lets you play games. The only website it depends on being unblocked is data url's (ofc) and jsdelivr (usually unblocked because it is a widely used cdn). 
-Note that not all games work since data urls don't support features like cookies, local storage, etc.
-## How to use
-Simply go to this URL in your browser:
+<div align="center">
+
+### Taz's School: the BEST gamesite hosted in a data url
+
+#### give a star, this project took a while <3 ⭐️✨
+
+
+
+
+> [!NOTE]
+> [Original version on GitHub](https://github.com/BradleyLikesCoding/thingy)
+
+## Features
+
+-   Large 500+ game library
+-   MORE COMING SOON
+
+
+
+
+## Installation
+
+
+Install from data url:
+
 ```
-data:text/html;charset=UTF-8;base64,PGh0bWw+PGhlYWQ+PHRpdGxlPkxvYWRpbmc8L3RpdGxlPjwvaGVhZD48Ym9keT48c2NyaXB0PmZldGNoKCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvQnJhZGxleUxpa2VzQ29kaW5nL3RoaW5neS9pbmRleC5odG1sP2NiPTEyMyIpLnRoZW4ocmVzcG9uc2U9PnJlc3BvbnNlLnRleHQoKSkudGhlbihodG1sPT57ZG9jdW1lbnQub3BlbigpO2RvY3VtZW50LndyaXRlKGh0bWwpO2RvY3VtZW50LmNsb3NlKCk7fSkuY2F0Y2goZXJyb3I9Pntjb25zb2xlLmVycm9yKCJGYWlsZWQgdG8gbG9hZCBjb250ZW50OiIsZXJyb3IpO2RvY3VtZW50LmJvZHkudGV4dENvbnRlbnQ9IkVycm9yIGxvYWRpbmcgcGFnZS4iO30pOzwvc2NyaXB0PjwvYm9keT48L2h0bWw+
+data:text/html,%3Chtml%3E%0A%20%20%20%20%3Chead%3E%0A%20%20%20%20%20%20%20%20%3Ctitle%3ELoading%3C%2Ftitle%3E%0A%3Clink%20rel%3D%22shortcut%20icon%22%20href%3D%22https%3A%2F%2Fi.imgur.com%2FSCF15l6.png%22%20type%3D%22image%2Fpng%22%20%2F%3E%0A%20%20%20%20%3C%2Fhead%3E%0A%20%20%20%20%3Cbody%3E%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20fetch(%22https%3A%2F%2Fraw.githubusercontent.com%2Ftazz-devv%2Ftazs-school%2Frefs%2Fheads%2Fmain%2Findex.html%22).then(response%20%3D%3E%20response.text()).then(html%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.open()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.write(html)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.close()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D).catch(error%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error(%22Failed%20to%20load%20content%3A%22%2C%20error)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.body.textContent%20%3D%20%22Error%20loading%20page.%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%20%20%20%20%3C%2Fscript%3E%0A%20%20%20%20%3C%2Fbody%3E%0A%3C%2Fhtml%3E
 ```
-## Credit to [Selenite](https://gitlab.com/skysthelimit.dev/selenite) for the game library
+
+## Screenshots
+
+![App Screenshot](img/v1example.png)
+
+
+
+## Support
+
+For support contact me. The fastest way to reach me is on discord @fucktazz.
+
