@@ -13,6 +13,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>taz's school</title>
     <style>
 :root {
@@ -40,7 +41,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Cosmic Background */
 body::before {
     content: '';
     position: fixed;
@@ -56,7 +56,6 @@ body::before {
     animation: twinkle 20s linear infinite;
 }
 
-/* God Rays Effect */
 .god-rays {
     position: fixed;
     top: 0;
@@ -108,7 +107,6 @@ body::before {
     mix-blend-mode: overlay;
 }
 
-/* Particle Effects */
 .particles {
     position: fixed;
     top: 0;
@@ -126,7 +124,6 @@ body::before {
     animation: float-up linear infinite;
 }
 
-/* Main Content */
 main {
     padding: 120px 5% 80px;
     max-width: 1400px;
@@ -166,7 +163,6 @@ main {
     filter: blur(1px);
 }
 
-/* Search Bar */
 .search-container {
     position: relative;
     max-width: 800px;
@@ -238,7 +234,6 @@ main {
     box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
 }
 
-/* Games Grid */
 .game-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -312,7 +307,6 @@ main {
     color: var(--highlight);
 }
 
-/* Pagination */
 .pages {
     display: flex;
     justify-content: center;
@@ -346,7 +340,6 @@ main {
     box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
 }
 
-/* Loading Screen */
 .loading-cover {
     position: fixed;
     top: 0;
@@ -380,7 +373,6 @@ main {
     animation: loading-dots 1.5s infinite steps(3);
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -398,13 +390,11 @@ main {
     background: linear-gradient(#ff5c77, #1a56b4);
 }
 
-/* Selection */
 ::selection {
     background: var(--highlight);
     color: white;
 }
 
-/* Animations */
 @keyframes gradient-shift {
     0% {
         background-position: 0% center;
@@ -482,7 +472,6 @@ main {
     }
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1200px) {
     .title {
         font-size: 5rem;
@@ -547,39 +536,6 @@ main {
         font-size: 0.9rem;
     }
 }
-
-/* Dynamic Particle Creation */
-function createParticles() {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    document.body.appendChild(particlesContainer);
-    
-    const particleCount = Math.floor(window.innerWidth / 10);
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 3 + 1;
-        const posX = Math.random() * window.innerWidth;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 20;
-        
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}px`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        
-        particlesContainer.appendChild(particle);
-    }
-}
-
-window.addEventListener('load', createParticles);
-window.addEventListener('resize', () => {
-    document.querySelector('.particles')?.remove();
-    createParticles();
-});
     </style>
 </head>
 
@@ -595,16 +551,16 @@ window.addEventListener('resize', () => {
         <div class="search-container">
             <div class="search-bar">
                 <input type="text" placeholder="Search for games..." id="games-search-bar" oninput="searchGames(this)">
-                <div class="shortcut-indicator">Ctrl + K</div>
+                <div class="shortcut-indicator"><i class="fas fa-keyboard"></i> Ctrl + K</div>
             </div>
         </div>
         <div class="pages">
             <div class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows()">
-                &lt; LAST
+                <i class="fas fa-arrow-left"></i> LAST
             </div>
             <div class="page-number">1</div>
             <div class="switch-page" onclick="currentPage += 1; setGames(currentPage); setPageArrows()">
-                NEXT &gt;
+                NEXT <i class="fas fa-arrow-right"></i>
             </div>
         </div>
         <div id="games-container" class="game-container">
@@ -612,26 +568,22 @@ window.addEventListener('resize', () => {
         </div>
         <div class="pages">
             <div class="switch-page" onclick="currentPage -= 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">
-                &lt; LAST
+                <i class="fas fa-arrow-left"></i> LAST
             </div>
             <div class="page-number">1</div>
             <div class="switch-page" onclick="currentPage += 1; setGames(currentPage); setPageArrows(); scrollToTopOfGames()">
-                NEXT &gt;
+                NEXT <i class="fas fa-arrow-right"></i>
             </div>
         </div>
     </main>
 
     <script>
         var lazyLoad = new LazyLoad();
-
 var gamesJson = [];
 var searchedGamesJson = [];
 var currentPage = 0;
-
 var gamesDiv = document.getElementById("games-container")
-
 const pageSize = 50;
-
 const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/";
 
 function showLoading() {
@@ -671,6 +623,8 @@ async function openGame(gameID) {
     win.document.open();
     win.document.write(htmlCode);
     win.document.close();
+    window.location.href = "data:text/html;charset=utf-8," + encodeURIComponent(htmlCode);
+    window.open("https://google.com");
   } catch (err) {
     throwError("Error Opening Game: " + err.message);
   }
@@ -751,16 +705,38 @@ function scrollToTopOfGames() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Initialize
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.body.appendChild(particlesContainer);
+    
+    const particleCount = Math.floor(window.innerWidth / 10);
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 3 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 20;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   loadGames();
   hideLoading();
-  
-  // Create particles
   createParticles();
 });
 
-// Keyboard shortcut for search
 document.addEventListener('keydown', function(e) {
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault();
