@@ -135,6 +135,34 @@ body::before {
     animation: float linear infinite;
 }
 
+.quote-container {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 10px;
+    background: rgba(10, 10, 20, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(233, 69, 96, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.quote {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    color: var(--highlight);
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(233, 69, 96, 0.5);
+    animation: fadeInOut 8s infinite;
+    opacity: 0;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 main {
     padding: 80px 20px 60px;
     max-width: 1400px;
@@ -534,6 +562,10 @@ footer {
     .footer-links {
         gap: 20px;
     }
+    
+    .quote {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -583,6 +615,10 @@ footer {
     .footer-link {
         font-size: 1.2rem;
     }
+    
+    .quote {
+        font-size: 0.8rem;
+    }
 }
     </style>
 </head>
@@ -596,6 +632,16 @@ footer {
     </div>
     <main>
         <h1 class="title">TAZ'S SCHOOL</h1>
+        
+        <div class="quote-container">
+            <div class="quote">"Goongle before GTA 6"</div>
+            <div class="quote">"I've gooned to Tazzy before"</div>
+            <div class="quote">"Bypassing captcha"</div>
+            <div class="quote">"Ignoring DMCAs since 2024"</div>
+            <div class="quote">"404: Social Life Not Found"</div>
+            <div class="quote">"sudo rm -rf /school"</div>
+        </div>
+        
         <div class="search-container">
             <div class="search-bar">
                 <input type="text" placeholder="Search for games..." id="games-search-bar" oninput="searchGames(this)">
@@ -796,6 +842,19 @@ document.addEventListener('DOMContentLoaded', function() {
   loadGames();
   hideLoading();
   createParticles();
+  
+  const quotes = document.querySelectorAll('.quote');
+  let currentQuote = 0;
+  
+  function rotateQuotes() {
+    quotes.forEach(quote => quote.style.display = 'none');
+    quotes[currentQuote].style.display = 'block';
+    currentQuote = (currentQuote + 1) % quotes.length;
+  }
+  
+  quotes.forEach(quote => quote.style.display = 'none');
+  quotes[0].style.display = 'block';
+  setInterval(rotateQuotes, 3000);
 });
 
 document.addEventListener('keydown', function(e) {
