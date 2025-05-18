@@ -5,9 +5,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Freeman&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" content="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
     <title>taz's school</title>
     <style>
@@ -122,26 +126,6 @@ body::before {
     animation: float-up linear infinite;
 }
 
-/* Snow Particles */
-.snow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.snowflake {
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    filter: blur(0.5px);
-    animation: snow-fall linear infinite;
-}
-
 /* Main Content */
 main {
     padding: 120px 5% 80px;
@@ -254,10 +238,10 @@ main {
     box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
 }
 
-/* Enhanced Game Cards */
+/* Games Grid */
 .game-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 30px;
     margin-bottom: 50px;
 }
@@ -271,11 +255,10 @@ main {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(233, 69, 96, 0.1);
     cursor: pointer;
-    perspective: 1000px;
 }
 
 .game:hover {
-    transform: translateY(-10px) scale(1.03) rotateX(5deg);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: var(--glow-intense);
     border-color: rgba(233, 69, 96, 0.5);
 }
@@ -297,21 +280,10 @@ main {
     pointer-events: none;
 }
 
-.game::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 100%);
-    pointer-events: none;
-}
-
 .game-image-container {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -320,12 +292,10 @@ main {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
-    filter: brightness(0.9);
 }
 
 .game:hover .game-image {
     transform: scale(1.1);
-    filter: brightness(1.1);
 }
 
 .game-title {
@@ -336,36 +306,10 @@ main {
     color: var(--text);
     font-size: 1.1rem;
     transition: var(--transition);
-    position: relative;
-    z-index: 1;
 }
 
 .game:hover .game-title {
     color: var(--highlight);
-    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
-}
-
-.game-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7) 100%);
-    z-index: 1;
-}
-
-.game-rating {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(233, 69, 96, 0.8);
-    color: white;
-    padding: 3px 8px;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    z-index: 2;
 }
 
 /* Pagination */
@@ -434,350 +378,6 @@ main {
     content: '...';
     position: absolute;
     animation: loading-dots 1.5s infinite steps(3);
-}
-
-/* Settings Modal */
-.settings-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    overflow-y: auto;
-}
-
-.settings-content {
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    margin: 50px auto;
-    padding: 30px;
-    width: 80%;
-    max-width: 800px;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    position: relative;
-}
-
-.close-settings {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    color: var(--text-dim);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.close-settings:hover {
-    color: var(--highlight);
-    transform: rotate(90deg);
-}
-
-.settings-tabs {
-    display: flex;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(233, 69, 96, 0.3);
-}
-
-.tab-link {
-    padding: 10px 20px;
-    background: none;
-    border: none;
-    color: var(--text-dim);
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transition);
-    border-bottom: 3px solid transparent;
-}
-
-.tab-link:hover {
-    color: var(--text);
-}
-
-.tab-link.active {
-    color: var(--highlight);
-    border-bottom: 3px solid var(--highlight);
-}
-
-.tab-link i {
-    margin-right: 10px;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px 0;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.setting-card {
-    background: rgba(10, 10, 20, 0.5);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(233, 69, 96, 0.1);
-    transition: var(--transition);
-}
-
-.setting-card:hover {
-    border-color: rgba(233, 69, 96, 0.3);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.setting-card h2 {
-    margin-top: 0;
-    color: var(--highlight);
-    font-size: 1.3rem;
-}
-
-.setting-card p {
-    color: var(--text-dim);
-    margin-bottom: 15px;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #1a1a2e;
-    transition: .4s;
-    border: 1px solid rgba(233, 69, 96, 0.3);
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: var(--text-dim);
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: var(--highlight);
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-    background-color: white;
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-button {
-    background: linear-gradient(to right, var(--highlight), var(--accent));
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.dropdown-button {
-    background: rgba(10, 10, 20, 0.7);
-    color: var(--text);
-    padding: 10px 15px;
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    border-radius: 5px;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.dropdown-button:hover {
-    border-color: rgba(233, 69, 96, 0.5);
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #1a1a2e;
-    width: 100%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 5px;
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.dropdown-menu li {
-    color: var(--text);
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.dropdown-menu li:hover {
-    background: rgba(233, 69, 96, 0.2);
-}
-
-.credit-card {
-    background: rgba(10, 10, 20, 0.5);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(233, 69, 96, 0.1);
-    transition: var(--transition);
-    text-align: center;
-}
-
-.credit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: rgba(233, 69, 96, 0.3);
-}
-
-.credit-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border: 3px solid rgba(233, 69, 96, 0.3);
-}
-
-.credit-name {
-    font-weight: bold;
-    color: var(--highlight);
-    margin-bottom: 5px;
-}
-
-.credit-role {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.modal-content {
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    margin: 50px auto;
-    padding: 30px;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 1.5rem;
-    color: var(--text-dim);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.close:hover {
-    color: var(--highlight);
-}
-
-#faviconSelection {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.favicon-option {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: var(--transition);
-    border: 2px solid transparent;
-}
-
-.favicon-option:hover {
-    transform: scale(1.05);
-    border-color: var(--highlight);
-}
-
-input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background: rgba(10, 10, 20, 0.7);
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    border-radius: 5px;
-    color: var(--text);
-    font-family: 'Poppins', sans-serif;
-}
-
-input[type="text"]:focus, input[type="number"]:focus {
-    outline: none;
-    border-color: var(--highlight);
-    box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
 }
 
 /* Scrollbar */
@@ -870,23 +470,6 @@ input[type="text"]:focus, input[type="number"]:focus {
     }
 }
 
-@keyframes snow-fall {
-    0% {
-        transform: translateY(-10px) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) translateX(20px);
-        opacity: 0;
-    }
-}
-
 @keyframes loading-dots {
     0%, 20% {
         content: '.';
@@ -917,11 +500,6 @@ input[type="text"]:focus, input[type="number"]:focus {
     
     .game-image-container {
         height: 120px;
-    }
-    
-    .settings-content, .modal-content {
-        width: 90%;
-        padding: 20px;
     }
 }
 
@@ -968,44 +546,50 @@ input[type="text"]:focus, input[type="number"]:focus {
         padding: 8px 15px;
         font-size: 0.9rem;
     }
+}
+
+/* Dynamic Particle Creation */
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.body.appendChild(particlesContainer);
     
-    .settings-tabs {
-        flex-direction: column;
-    }
+    const particleCount = Math.floor(window.innerWidth / 10);
     
-    .tab-link {
-        text-align: left;
-        border-bottom: none;
-        border-left: 3px solid transparent;
-    }
-    
-    .tab-link.active {
-        border-bottom: none;
-        border-left: 3px solid var(--highlight);
-    }
-    
-    #faviconSelection {
-        grid-template-columns: 1fr;
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 3 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 20;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
     }
 }
+
+window.addEventListener('load', createParticles);
+window.addEventListener('resize', () => {
+    document.querySelector('.particles')?.remove();
+    createParticles();
+});
     </style>
 </head>
 
 <body>
     <div class="god-rays"></div>
-    <div class="particles"></div>
-    <div class="snow"></div>
-    
     <div class="loading-cover">
         <div class="loading-text">
             Loading
         </div>
     </div>
-    
-    <button id="settingsButton" class="settings-button">
-        <i class="fas fa-cog"></i>
-    </button>
-    
     <main>
         <h1 class="title">GAMES</h1>
         <div class="search-container">
@@ -1036,180 +620,28 @@ input[type="text"]:focus, input[type="number"]:focus {
             </div>
         </div>
     </main>
-    
-    <!-- Settings Modal -->
-    <div id="settingsModal" class="settings-modal">
-        <div class="settings-content">
-            <span class="close-settings">&times;</span>
-            <h1><i class="fas fa-cog"></i> Settings</h1>
-            <div class="settings-tabs">
-                <button class="tab-link active" onclick="openTab(event, 'appearance')">
-                    <i class="fas fa-palette"></i>
-                    Appearance
-                </button>
-                <button class="tab-link" onclick="openTab(event, 'cloaking')">
-                    <i class="fas fa-eye-slash"></i>
-                    Cloaking
-                </button>
-                <button class="tab-link" onclick="openTab(event, 'misc')">
-                    <i class="fas fa-info"></i>
-                    Misc
-                </button>
-            </div>
 
-            <div id="appearance" class="tab-content active">
-                <div class="setting-card">
-                    <h2>Particles</h2>
-                    <p>Disabling particles will improve performance for low-end devices.</p>
-                    <label class="switch">
-                        <input type="checkbox" id="toggle-particles" checked>
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="setting-card">
-                    <h2>Snow Effect</h2>
-                    <p>Toggle the falling snow animation for a festive look.</p>
-                    <label class="switch">
-                        <input type="checkbox" id="toggle-snow" checked>
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="setting-card">
-                    <h2>Change Favicon</h2>
-                    <p>Change the icon that appears in your browser tab.</p>
-                    <button id="openFaviconUI">Change Favicon</button>
-                </div>
-            </div>
+    <script>
+        var lazyLoad = new LazyLoad();
 
-            <div id="cloaking" class="tab-content">
-                <div class="setting-card">
-                    <h2>about:blank Cloaking</h2>
-                    <p>about:blank cloaking allows you to hide this site from your tab history. Please enable popups for this to work.</p>
-                    <div class="buttons">
-                        <button id="enableAboutBlank">Enable</button>
-                        <button id="disableAboutBlank">Disable</button>
-                    </div>
-                </div>
-                <div class="setting-card">
-                    <h2>Tab Cloaking</h2>
-                    <p>Disguise your tabs as something educational! Change both the title and favicon to avoid detection.</p>
-                    <div class="dropdown" id="tab-cloak">
-                        <button class="dropdown-button">
-                            <span class="dropdown-selected">Default</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li data-value="default">Default</li>
-                            <li data-value="google">Google</li>
-                            <li data-value="classroom">Google Classroom</li>
-                            <li data-value="docs">Google Docs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="misc" class="tab-content">
-                <div class="setting-card">
-                    <h2>Credits</h2>
-                    <div class="cards-container" id="credits-container">
-                        <div class="credit-card">
-                            <a href="https://github.com/tazz-devv" target="_blank" rel="noopener noreferrer">
-                                <img src="https://i.imgur.com/Zi9LMeH.png" alt="Taz" class="credit-img">
-                                <div class="credit-name">Taz</div>
-                                <div class="credit-role">Drastically improved UI, and added some features.</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="setting-card">
-                    <h2>Panic Keybind</h2>
-                    <p>Set a key to quickly hide this page. Press this key to instantly redirect to Google Classroom.</p>
-                    <button id="setKeybindButton">Set Panic Keybind</button>
-                </div>
-                <div class="setting-card">
-                    <h2>Auto Clicker</h2>
-                    <p>Configure the auto clicker settings. Useful for idle games or repetitive tasks.</p>
-                    <button id="openAutoClickerModalButton">Auto Clicker Settings</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="faviconModal" class="modal">
-        <div class="modal-content">
-            <span id="closeFaviconModal" class="close">&times;</span>
-            <h2>Select Favicon</h2>
-            <div id="faviconSelection">
-                <img src="/images/favicon.png" class="favicon-option" data-favicon="/images/favicon.png" data-title="Grades & Attendance">
-                       <img src="https://ssl.gstatic.com/classroom/ic_product_classroom_144.png" class="favicon-option" data-favicon="https://ssl.gstatic.com/classroom/ic_product_classroom_144.png" data-title="Google Classroom">
-                <img src="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" class="favicon-option" data-favicon="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" data-title="Google Docs">
-                <img src="https://www.google.com/favicon.ico" class="favicon-option" data-favicon="https://www.google.com/favicon.ico" data-title="Google">
-                <img src="https://ssl.gstatic.com/classroom/ic_product_calendar_144.png" class="favicon-option" data-favicon="https://ssl.gstatic.com/classroom/ic_product_calendar_144.png" data-title="Google Calendar">
-            </div>
-        </div>
-    </div>
-
-    <!-- Auto Clicker Modal -->
-    <div id="autoClickerModal" class="modal">
-        <div class="modal-content">
-            <span id="closeAutoClickerModal" class="close">&times;</span>
-            <h2>Auto Clicker Settings</h2>
-            <div class="setting-card">
-                <h2>Click Interval (ms)</h2>
-                <p>Set the time between clicks in milliseconds (1000ms = 1 second)</p>
-                <input type="number" id="clickInterval" value="1000" min="50" max="10000">
-            </div>
-            <div class="setting-card">
-                <h2>Click Position</h2>
-                <p>Click anywhere on the screen to set the click position</p>
-                <button id="setClickPosition">Set Click Position</button>
-                <div id="positionDisplay">Position: Not set</div>
-            </div>
-            <div class="buttons">
-                <button id="startAutoClicker">Start</button>
-                <button id="stopAutoClicker">Stop</button>
-            </div>
-        </div>
-    </div>
- 
- <script>
-var lazyLoad = new LazyLoad();
 var gamesJson = [];
 var searchedGamesJson = [];
 var currentPage = 0;
-var gamesDiv = document.getElementById("games-container");
+
+var gamesDiv = document.getElementById("games-container")
+
 const pageSize = 50;
+
 const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/";
 
-// Settings variables
-var autoClickerInterval;
-var clickPosition = null;
-var panicKey = null;
+function showLoading() {
+  document.getElementsByClassName("loading-cover")[0].style.display = "flex";
+}
 
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
-  loadGames();
-  hideLoading();
-  createParticles();
-  initializeSettings();
-  loadSettings();
-  
-  // Keyboard shortcut for search
-  document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-      e.preventDefault();
-      document.getElementById('games-search-bar').focus();
-    }
-    
-    // Panic key functionality
-    if (panicKey && e.key === panicKey) {
-      e.preventDefault();
-      window.location.href = "https://classroom.google.com";
-    }
-  });
-});
+function hideLoading() {
+  document.getElementsByClassName("loading-cover")[0].style.display = "none";
+}
 
-// Game functions
 async function generateGameCode(gameID) {
   var res = await fetch(REPO + "semag/" + gameID + "/index.html");
   if (res.ok) {
@@ -1319,353 +751,22 @@ function scrollToTopOfGames() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function showLoading() {
-  document.getElementsByClassName("loading-cover")[0].style.display = "flex";
-}
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  loadGames();
+  hideLoading();
+  
+  // Create particles
+  createParticles();
+});
 
-function hideLoading() {
-  document.getElementsByClassName("loading-cover")[0].style.display = "none";
-}
-
-// Particle functions
-function createParticles() {
-  const particlesContainer = document.querySelector('.particles');
-  const particleCount = 50;
-  
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    
-    // Random size between 1px and 3px
-    const size = Math.random() * 2 + 1;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    
-    // Random position
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    
-    // Random opacity
-    particle.style.opacity = Math.random() * 0.5 + 0.1;
-    
-    // Random animation duration between 10s and 20s
-    const duration = Math.random() * 10 + 10;
-    particle.style.animationDuration = `${duration}s`;
-    
-    particlesContainer.appendChild(particle);
-  }
-}
-
-function createSnow() {
-  const snowContainer = document.querySelector('.snow');
-  const snowflakeCount = 100;
-  
-  for (let i = 0; i < snowflakeCount; i++) {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    
-    // Random size between 1px and 5px
-    const size = Math.random() * 4 + 1;
-    snowflake.style.width = `${size}px`;
-    snowflake.style.height = `${size}px`;
-    
-    // Random position
-    snowflake.style.left = `${Math.random() * 100}%`;
-    snowflake.style.top = `${-10 - Math.random() * 10}%`;
-    
-    // Random opacity
-    snowflake.style.opacity = Math.random() * 0.8 + 0.2;
-    
-    // Random animation duration between 5s and 15s
-    const duration = Math.random() * 10 + 5;
-    snowflake.style.animationDuration = `${duration}s`;
-    
-    // Random delay
-    snowflake.style.animationDelay = `${Math.random() * 5}s`;
-    
-    snowContainer.appendChild(snowflake);
-  }
-}
-
-function toggleParticles(enable) {
-  const particles = document.querySelector('.particles');
-  if (enable) {
-    particles.style.display = 'block';
-  } else {
-    particles.style.display = 'none';
-  }
-  localStorage.setItem('particlesEnabled', enable);
-}
-
-function toggleSnow(enable) {
-  const snow = document.querySelector('.snow');
-  if (enable) {
-    snow.style.display = 'block';
-    // Recreate snowflakes if container is empty
-    if (snow.children.length === 0) {
-      createSnow();
-    }
-  } else {
-    snow.style.display = 'none';
-  }
-  localStorage.setItem('snowEnabled', enable);
-}
-
-// Settings functions
-function initializeSettings() {
-  // Settings modal toggle
-  document.getElementById('settingsButton').addEventListener('click', function() {
-    document.getElementById('settingsModal').style.display = 'block';
-  });
-  
-  document.querySelector('.close-settings').addEventListener('click', function() {
-    document.getElementById('settingsModal').style.display = 'none';
-  });
-  
-  // Tab functionality
-  document.querySelectorAll('.tab-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      openTab(e, this.getAttribute('onclick').match(/'([^']+)'/)[1]);
-    });
-  });
-  
-  // Toggle particles
-  document.getElementById('toggle-particles').addEventListener('change', function() {
-    toggleParticles(this.checked);
-  });
-  
-  // Toggle snow
-  document.getElementById('toggle-snow').addEventListener('change', function() {
-    toggleSnow(this.checked);
-  });
-  
-  // Favicon modal
-  document.getElementById('openFaviconUI').addEventListener('click', function() {
-    document.getElementById('faviconModal').style.display = 'block';
-  });
-  
-  document.getElementById('closeFaviconModal').addEventListener('click', function() {
-    document.getElementById('faviconModal').style.display = 'none';
-  });
-  
-  // Favicon selection
-  document.querySelectorAll('.favicon-option').forEach(option => {
-    option.addEventListener('click', function() {
-      const favicon = this.getAttribute('data-favicon');
-      const title = this.getAttribute('data-title');
-      changeFavicon(favicon, title);
-      document.getElementById('faviconModal').style.display = 'none';
-    });
-  });
-  
-  // About blank cloaking
-  document.getElementById('enableAboutBlank').addEventListener('click', function() {
-    localStorage.setItem('aboutBlankEnabled', 'true');
-    alert('about:blank cloaking enabled. Make sure to allow popups for this site.');
-  });
-  
-  document.getElementById('disableAboutBlank').addEventListener('click', function() {
-    localStorage.removeItem('aboutBlankEnabled');
-    alert('about:blank cloaking disabled');
-  });
-  
-  // Tab cloaking dropdown
-  const tabCloakDropdown = document.getElementById('tab-cloak');
-  const tabCloakButton = tabCloakDropdown.querySelector('.dropdown-button');
-  const tabCloakMenu = tabCloakDropdown.querySelector('.dropdown-menu');
-  
-  tabCloakButton.addEventListener('click', function() {
-    tabCloakMenu.style.display = tabCloakMenu.style.display === 'block' ? 'none' : 'block';
-  });
-  
-  tabCloakMenu.querySelectorAll('li').forEach(item => {
-    item.addEventListener('click', function() {
-      const value = this.getAttribute('data-value');
-      const text = this.textContent;
-      tabCloakDropdown.querySelector('.dropdown-selected').textContent = text;
-      tabCloakMenu.style.display = 'none';
-      applyTabCloak(value);
-    });
-  });
-  
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function(e) {
-    if (!tabCloakDropdown.contains(e.target)) {
-      tabCloakMenu.style.display = 'none';
-    }
-  });
-  
-  // Panic keybind
-  document.getElementById('setKeybindButton').addEventListener('click', setPanicKeybind);
-  
-  // Auto clicker modal
-  document.getElementById('openAutoClickerModalButton').addEventListener('click', function() {
-    document.getElementById('autoClickerModal').style.display = 'block';
-  });
-  
-  document.getElementById('closeAutoClickerModal').addEventListener('click', function() {
-    document.getElementById('autoClickerModal').style.display = 'none';
-  });
-  
-  // Auto clicker functionality
-  document.getElementById('setClickPosition').addEventListener('click', function() {
-    alert('Click anywhere on the screen to set the click position');
-    document.addEventListener('click', setAutoClickerPosition, { once: true });
-  });
-  
-  document.getElementById('startAutoClicker').addEventListener('click', startAutoClicker);
-  document.getElementById('stopAutoClicker').addEventListener('click', stopAutoClicker);
-}
-
-function loadSettings() {
-  // Load particle setting
-  const particlesEnabled = localStorage.getItem('particlesEnabled') !== 'false';
-  document.getElementById('toggle-particles').checked = particlesEnabled;
-  toggleParticles(particlesEnabled);
-  
-  // Load snow setting
-  const snowEnabled = localStorage.getItem('snowEnabled') !== 'false';
-  document.getElementById('toggle-snow').checked = snowEnabled;
-  toggleSnow(snowEnabled);
-  
-  // Load tab cloak setting
-  const tabCloak = localStorage.getItem('tabCloak') || 'default';
-  const tabCloakItem = document.querySelector(`.dropdown-menu li[data-value="${tabCloak}"]`);
-  if (tabCloakItem) {
-    tabCloakItem.click();
-  }
-  
-  // Load panic key
-  panicKey = localStorage.getItem('panicKey');
-}
-
-function openTab(evt, tabName) {
-  const tabContents = document.getElementsByClassName("tab-content");
-  for (let i = 0; i < tabContents.length; i++) {
-    tabContents[i].classList.remove("active");
-  }
-  
-  const tabLinks = document.getElementsByClassName("tab-link");
-  for (let i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].classList.remove("active");
-  }
-  
-  document.getElementById(tabName).classList.add("active");
-  evt.currentTarget.classList.add("active");
-}
-
-function changeFavicon(faviconUrl, title) {
-  const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-  link.type = 'image/x-icon';
-  link.rel = 'shortcut icon';
-  link.href = faviconUrl;
-  document.getElementsByTagName('head')[0].appendChild(link);
-  
-  if (title) {
-    document.title = title;
-  }
-  
-  localStorage.setItem('favicon', faviconUrl);
-  localStorage.setItem('tabTitle', title);
-}
-
-function applyTabCloak(mode) {
-  localStorage.setItem('tabCloak', mode);
-  
-  switch (mode) {
-    case 'google':
-      changeFavicon('https://www.google.com/favicon.ico', 'Google');
-      break;
-    case 'classroom':
-      changeFavicon('https://ssl.gstatic.com/classroom/ic_product_classroom_144.png', 'Google Classroom');
-      break;
-    case 'docs':
-      changeFavicon('https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico', 'Google Docs');
-      break;
-    default:
-      changeFavicon('/images/favicon.png', 'Grades & Attendance');
-      break;
-  }
-}
-
-function setPanicKeybind() {
-  alert('Press any key to set as panic key...');
-  document.addEventListener('keydown', function keyListener(e) {
+// Keyboard shortcut for search
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault();
-    panicKey = e.key;
-    localStorage.setItem('panicKey', panicKey);
-    alert(`Panic key set to: ${e.key}`);
-    document.removeEventListener('keydown', keyListener);
-  }, { once: true });
-}
-
-function setAutoClickerPosition(e) {
-  clickPosition = { x: e.clientX, y: e.clientY };
-  document.getElementById('positionDisplay').textContent = `Position: ${clickPosition.x}, ${clickPosition.y}`;
-  localStorage.setItem('autoClickerPosition', JSON.stringify(clickPosition));
-}
-
-function startAutoClicker() {
-  const interval = parseInt(document.getElementById('clickInterval').value) || 1000;
-  
-  // Load saved position if available
-  if (!clickPosition) {
-    const savedPosition = localStorage.getItem('autoClickerPosition');
-    if (savedPosition) {
-      clickPosition = JSON.parse(savedPosition);
-      document.getElementById('positionDisplay').textContent = `Position: ${clickPosition.x}, ${clickPosition.y}`;
-    }
-  }
-  
-  if (!clickPosition) {
-    alert('Please set a click position first');
-    return;
-  }
-  
-  if (interval < 50 || interval > 10000) {
-    alert('Interval must be between 50 and 10000 milliseconds');
-    return;
-  }
-  
-  localStorage.setItem('autoClickerInterval', interval);
-  
-  // Stop any existing auto clicker
-  stopAutoClicker();
-  
-  // Create synthetic click event
-  function performClick() {
-    const clickEvent = new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true,
-      clientX: clickPosition.x,
-      clientY: clickPosition.y
-    });
-    
-    const element = document.elementFromPoint(clickPosition.x, clickPosition.y);
-    if (element) {
-      element.dispatchEvent(clickEvent);
-    }
-  }
-  
-  // Initial click and start interval
-  performClick();
-  autoClickerInterval = setInterval(performClick, interval);
-}
-
-function stopAutoClicker() {
-  if (autoClickerInterval) {
-    clearInterval(autoClickerInterval);
-    autoClickerInterval = null;
-  }
-}
-
-// Close modals when clicking outside
-window.addEventListener('click', function(e) {
-  if (e.target.classList.contains('modal')) {
-    e.target.style.display = 'none';
+    document.getElementById('games-search-bar').focus();
   }
 });
-     </script>
+    </script>
 </body>
 </html>
-
