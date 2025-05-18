@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Freeman&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" content="/favicon.ico" />
+    <link rel="shortcut icon" href="https://proll.biz/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>taz's school</title>
+    <title>Grades & attendance</title>
     <style>
 :root {
     --primary: #1a1a2e;
@@ -637,11 +634,11 @@ footer {
     </footer>
 
     <script>
-        var lazyLoad = new LazyLoad();
+var lazyLoad = new LazyLoad();
 var gamesJson = [];
 var searchedGamesJson = [];
 var currentPage = 0;
-var gamesDiv = document.getElementById("games-container")
+var gamesDiv = document.getElementById("games-container");
 const pageSize = 50;
 const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/";
 
@@ -677,13 +674,17 @@ function throwError(error) {
 async function openGame(gameID) {
   showLoading();
   try {
+    // Open about:blank first
+    const newWindow = window.open('about:blank');
+    
+    // Redirect current window to Google
+    window.location.href = "https://google.com";
+    
+    // Load game content into the new window
     var htmlCode = await generateGameCode(gameID);
-    var win = window.open("about:blank");
-    win.document.open();
-    win.document.write(htmlCode);
-    win.document.close();
-    window.location.href = "data:text/html;charset=utf-8," + encodeURIComponent(htmlCode);
-    window.open("https://google.com");
+    newWindow.document.open();
+    newWindow.document.write(htmlCode);
+    newWindow.document.close();
   } catch (err) {
     throwError("Error Opening Game: " + err.message);
   }
@@ -716,20 +717,37 @@ function getGameHTML(game) {
 
 function setGames(page) {
   var html = '';
-  for (var i = page * pageSize; i < searchedGamesJson.length; i++) {
+  var startIndex = page * pageSize;
+  var endIndex = Math.min(startIndex + pageSize, searchedGamesJson.length);
+  
+  for (var i = startIndex; i < endIndex; i++) {
     html += getGameHTML(searchedGamesJson[i]);
-    if (i - (page * pageSize) === pageSize - 1) break;
   }
+  
   gamesDiv.innerHTML = html;
   lazyLoad.update();
+}
+
+function switchPage(direction) {
+  var newPage = currentPage + direction;
+  var maxPage = Math.ceil(searchedGamesJson.length / pageSize) - 1;
+  
+  if (newPage >= 0 && newPage <= maxPage) {
+    currentPage = newPage;
+    setGames(currentPage);
+    setPageArrows();
+    scrollToTopOfGames();
+  }
 }
 
 function searchGames(e) {
   currentPage = 0;
   setPageArrows();
-  games = []
+  games = [];
   for (var i = 0; i < gamesJson.length; i++) {
-    if (gamesJson[i]["name"].toLowerCase().includes(e.value.toLowerCase())) games.push(gamesJson[i]);
+    if (gamesJson[i]["name"].toLowerCase().includes(e.value.toLowerCase())) {
+      games.push(gamesJson[i]);
+    }
   }
   searchedGamesJson = games;
   setPageArrows();
@@ -765,31 +783,31 @@ function scrollToTopOfGames() {
 }
 
 function createParticles() {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    document.body.appendChild(particlesContainer);
+  const particlesContainer = document.createElement('div');
+  particlesContainer.className = 'particles';
+  document.body.appendChild(particlesContainer);
+  
+  const particleCount = Math.floor(window.innerWidth / 5);
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
     
-    const particleCount = Math.floor(window.innerWidth / 5);
+    const size = Math.random() * 3 + 1;
+    const posX = Math.random() * window.innerWidth;
+    const posY = Math.random() * window.innerHeight;
+    const duration = Math.random() * 10 + 5;
+    const delay = Math.random() * 5;
     
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 3 + 1;
-        const posX = Math.random() * window.innerWidth;
-        const posY = Math.random() * window.innerHeight;
-        const duration = Math.random() * 10 + 5;
-        const delay = Math.random() * 5;
-        
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        
-        particlesContainer.appendChild(particle);
-    }
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${posX}px`;
+    particle.style.top = `${posY}px`;
+    particle.style.animationDuration = `${duration}s`;
+    particle.style.animationDelay = `${delay}s`;
+    
+    particlesContainer.appendChild(particle);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
