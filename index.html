@@ -14,10 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <title>TAZ'S SCHOOL</title>
+    <title>Grades & Attendance</title>
     <style>
 :root {
     --primary: #1a1a2e;
@@ -446,97 +443,6 @@ footer {
     animation: loading-dots 1.5s infinite steps(3);
 }
 
-/* Game Frame Styles */
-.gameframe-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    display: none;
-}
-
-.gameframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    background: #000;
-}
-
-.gameframe-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: rgba(10, 10, 20, 0.7);
-    border-top: 1px solid rgba(233, 69, 96, 0.2);
-}
-
-.gameframe-options .left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.gameframe-options .game-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.gameframe-options .right {
-    display: flex;
-    gap: 10px;
-}
-
-.gameframe-options button {
-    background: rgba(233, 69, 96, 0.2);
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    color: var(--text);
-    border-radius: 8px;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-}
-
-.gameframe-options button:hover {
-    background: rgba(233, 69, 96, 0.4);
-    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
-}
-
-.openaboutblankbutton {
-    display: none;
-    margin: 20px auto;
-    background: rgba(233, 69, 96, 0.2);
-    border: 1px solid rgba(233, 69, 96, 0.3);
-    color: var(--text);
-    border-radius: 50px;
-    padding: 12px 25px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.openaboutblankbutton:hover {
-    background: rgba(233, 69, 96, 0.4);
-    box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
-    transform: translateY(-2px);
-}
-
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -640,10 +546,6 @@ footer {
     .title {
         font-size: 3.5rem;
     }
-    
-    .gameframe {
-        height: 500px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -661,10 +563,6 @@ footer {
     
     .quote {
         font-size: 1.1rem;
-    }
-    
-    .gameframe {
-        height: 400px;
     }
 }
 
@@ -719,26 +617,6 @@ footer {
     .quote {
         font-size: 1rem;
     }
-    
-    .gameframe {
-        height: 300px;
-    }
-    
-    .gameframe-options {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-    }
-    
-    .gameframe-options .left {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .gameframe-options .right {
-        width: 100%;
-        justify-content: center;
-    }
 }
     </style>
 </head>
@@ -750,30 +628,6 @@ footer {
             Loading
         </div>
     </div>
-    
-    <!-- Game Frame Container (Added from Lunarsync) -->
-    <div class="gameframe-container" style="margin-top: 20px; display: none;">
-        <iframe class="gameframe" src="" allowfullscreen="" scrolling="yes"></iframe>
-        <div class="gameframe-options">
-            <div class="left">
-                <img class="game-image" src="https://i.imgur.com/SCF15l6.png">
-                <h1 id="gamename" style="font-weight: 300;">No Game Here...</h1>
-            </div>
-            <div class="right">
-                <button class="heart" id="likeButton">
-                    <ion-icon name="heart-outline" style="color: var(--text);"></ion-icon>
-                </button>
-                <button class="expand" onclick="fullscreen()">
-                    <ion-icon name="expand-outline" style="color: var(--text);"></ion-icon>
-                </button>
-            </div>
-        </div>
-    </div>
-    <button class="openaboutblankbutton" onclick="openblankpage()" style="display: none;">
-        <ion-icon name="open-outline"></ion-icon>
-        Open in about:blank
-    </button>
-    
     <main>
         <h1 class="title">TAZ'S SCHOOL</h1>
         
@@ -784,7 +638,7 @@ footer {
             <div class="quote" style="display:none">"Ignoring DMCAs since 2024"</div>
             <div class="quote" style="display:none">"404: Social Life Not Found"</div>
             <div class="quote" style="display:none">"sudo rm -rf /school"</div>
-            <div class="quote" style="display:none">"Icl ts website so ownen"</div>
+           <div class="quote" style="display:none">"Icl ts website so ownen"</div>
         </div>
         
         <div class="search-container">
@@ -836,232 +690,186 @@ footer {
             }
         });
         
-        var gamesJson = [];
-        var searchedGamesJson = [];
-        var currentPage = 0;
-        var gamesDiv = document.getElementById("games-container")
-        const pageSize = 50;
-        const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/";
+var gamesJson = [];
+var searchedGamesJson = [];
+var currentPage = 0;
+var gamesDiv = document.getElementById("games-container")
+const pageSize = 50;
+const REPO = "https://cdn.jsdelivr.net/gh/BradleyLikesCoding/thingy@main/";
 
-        function showLoading() {
-            document.getElementsByClassName("loading-cover")[0].style.display = "flex";
-        }
+function showLoading() {
+  document.getElementsByClassName("loading-cover")[0].style.display = "flex";
+}
 
-        function hideLoading() {
-            document.getElementsByClassName("loading-cover")[0].style.display = "none";
-        }
+function hideLoading() {
+  document.getElementsByClassName("loading-cover")[0].style.display = "none";
+}
 
-        async function generateGameCode(gameID) {
-            var res = await fetch(REPO + "semag/" + gameID + "/index.html");
-            if (res.ok) {
-                return (modifyHTML(await res.text(), gameID));
-            } else {
-                throw new Error("Error Fetching Game - Error Code " + res.status);
-            }
-        }
+async function generateGameCode(gameID) {
+  var res = await fetch(REPO + "semag/" + gameID + "/index.html");
+  if (res.ok) {
+    return (modifyHTML(await res.text(), gameID));
+  } else {
+    throw new Error("Error Fetching Game - Error Code " + res.status);
+  }
+}
 
-        function modifyHTML(code, gameID) {
-            var code = code.replace('<head>', `<head><base href="${REPO + "semag/" + gameID}/">`);
-            code = code.replace(/(href|src)="\/([^"]*)"/g, (match, attr, path) => {
-                return `${attr}="${REPO + path}"`;
-            });
-            return code;
-        }
+function modifyHTML(code, gameID) {
+  var code = code.replace('<head>', `<head><base href="${REPO + "semag/" + gameID}/">`);
+  code = code.replace(/(href|src)="\/([^"]*)"/g, (match, attr, path) => {
+    return `${attr}="${REPO + path}"`;
+  });
+  return code;
+}
 
-        function throwError(error) {
-            alert(error);
-        }
+function throwError(error) {
+  alert(error);
+}
 
-        // Modified openGame function to use the embedded game frame
-        async function openGame(gameID, gameName, gameImage) {
-            showLoading();
-            try {
-                const gameFrameContainer = document.querySelector('.gameframe-container');
-                const gameFrame = document.querySelector('.gameframe');
-                const gameNameElement = document.getElementById('gamename');
-                const gameImageElement = document.querySelector('.gameframe-options .game-image');
-                const openBlankButton = document.querySelector('.openaboutblankbutton');
-                
-                // Set game info
-                gameNameElement.textContent = gameName;
-                gameImageElement.src = gameImage || "https://i.imgur.com/SCF15l6.png";
-                
-                // Show the game frame container
-                gameFrameContainer.style.display = 'block';
-                openBlankButton.style.display = 'flex';
-                
-                // Scroll to the game frame
-                gameFrameContainer.scrollIntoView({ behavior: 'smooth' });
-                
-                // Load the game in the iframe
-                var htmlCode = await generateGameCode(gameID);
-                var blob = new Blob([htmlCode], { type: 'text/html' });
-                gameFrame.src = URL.createObjectURL(blob);
-                
-            } catch (err) {
-                throwError("Error Opening Game: " + err.message);
-            }
-            hideLoading();
-        }
+async function openGame(gameID) {
+  showLoading();
+  try {
+    var htmlCode = await generateGameCode(gameID);
+    var win = window.open("about:blank");
+    win.document.open();
+    win.document.write(htmlCode);
+    win.document.close();
+    window.location.href = "data:text/html;charset=utf-8," + encodeURIComponent(htmlCode);
+    window.open("https://google.com");
+  } catch (err) {
+    throwError("Error Opening Game: " + err.message);
+  }
+  hideLoading();
+}
 
-        function fullscreen() {
-            const gameFrame = document.querySelector('.gameframe');
-            if (gameFrame.requestFullscreen) {
-                gameFrame.requestFullscreen();
-            } else if (gameFrame.webkitRequestFullscreen) {
-                gameFrame.webkitRequestFullscreen();
-            } else if (gameFrame.msRequestFullscreen) {
-                gameFrame.msRequestFullscreen();
-            }
-        }
+async function loadGames() {
+  const res = await fetch(REPO + "data/games.json");
+  if (!res.ok) throw new Error("Failed to fetch games list");
+  const games = await res.json();
+  gamesJson = games;
+  searchedGamesJson = gamesJson;
+  currentPage = 0;
+  setPageArrows();
+  setGames(0);
+  
+  const quotes = document.querySelectorAll('.quote');
+  const randomQuote = Math.floor(Math.random() * quotes.length);
+  quotes.forEach((quote, index) => {
+    quote.style.display = index === randomQuote ? 'block' : 'none';
+  });
+}
 
-        function openblankpage() {
-            var win = window.open()
-            var url = document.querySelector('.gameframe').src
-            var iframe = win.document.createElement('iframe')
-            iframe.style.position = "fixed"
-            iframe.style.width = "100%"
-            iframe.style.height = "100%"
-            iframe.style.border = "none"
-            iframe.style.top = "0"
-            iframe.style.bottom = "0"
-            iframe.style.left = "0"
-            iframe.style.right = "0"
-            iframe.style.margin = "0"
-            iframe.style.padding = "0"
-            iframe.style.overflow = "hidden"
-            iframe.src = url
-            win.document.body.appendChild(iframe)
-        }
+function getGameHTML(game, index) {
+  return (`
+  <div class="game" onclick="openGame('${game["directory"]}')" style="animation-delay: ${index * 0.05}s">
+    <div class="game-image-container">
+      <img class="game-image lazy" data-src="${REPO + "semag/" + game["directory"] + "/" + game["image"]}" alt="${game["name"]}" loading="eager">
+    </div>
+    <p class="game-title">
+      ${game["name"]}
+    </p>
+  </div>
+  `);
+}
 
-        async function loadGames() {
-            const res = await fetch(REPO + "data/games.json");
-            if (!res.ok) throw new Error("Failed to fetch games list");
-            const games = await res.json();
-            gamesJson = games;
-            searchedGamesJson = gamesJson;
-            currentPage = 0;
-            setPageArrows();
-            setGames(0);
-            
-            const quotes = document.querySelectorAll('.quote');
-            const randomQuote = Math.floor(Math.random() * quotes.length);
-            quotes.forEach((quote, index) => {
-                quote.style.display = index === randomQuote ? 'block' : 'none';
-            });
-        }
+function setGames(page) {
+  var html = '';
+  var gameIndex = 0;
+  for (var i = page * pageSize; i < searchedGamesJson.length; i++) {
+    html += getGameHTML(searchedGamesJson[i], gameIndex);
+    gameIndex++;
+    if (i - (page * pageSize) === pageSize - 1) break;
+  }
+  gamesDiv.innerHTML = html;
+  
+  setTimeout(() => {
+    lazyLoad.update();
+    document.querySelectorAll('.lazy').forEach(img => {
+      img.src = img.dataset.src;
+    });
+  }, 100);
+}
 
-        function getGameHTML(game, index) {
-            return (`
-            <div class="game" onclick="openGame('${game["directory"]}', '${game["name"]}', '${REPO + "semag/" + game["directory"] + "/" + game["image"]}')" style="animation-delay: ${index * 0.05}s">
-                <div class="game-image-container">
-                    <img class="game-image lazy" data-src="${REPO + "semag/" + game["directory"] + "/" + game["image"]}" alt="${game["name"]}" loading="eager">
-                </div>
-                <p class="game-title">
-                    ${game["name"]}
-                </p>
-            </div>
-            `);
-        }
+function searchGames(e) {
+  currentPage = 0;
+  setPageArrows();
+  games = []
+  for (var i = 0; i < gamesJson.length; i++) {
+    if (gamesJson[i]["name"].toLowerCase().includes(e.value.toLowerCase())) games.push(gamesJson[i]);
+  }
+  searchedGamesJson = games;
+  setPageArrows();
+  setGames(currentPage);
+}
 
-        function setGames(page) {
-            var html = '';
-            var gameIndex = 0;
-            for (var i = page * pageSize; i < searchedGamesJson.length; i++) {
-                html += getGameHTML(searchedGamesJson[i], gameIndex);
-                gameIndex++;
-                if (i - (page * pageSize) === pageSize - 1) break;
-            }
-            gamesDiv.innerHTML = html;
-            
-            setTimeout(() => {
-                lazyLoad.update();
-                document.querySelectorAll('.lazy').forEach(img => {
-                    img.src = img.dataset.src;
-                });
-            }, 100);
-        }
+function setPageArrows() {
+  var maxPage = Math.ceil(searchedGamesJson.length / pageSize) - 1;
+  if (currentPage < 0) currentPage = 0;
+  if (currentPage > maxPage) currentPage = maxPage;
+  
+  var pageNumbers = document.getElementsByClassName("page-number");
+  for (var i = 0; i < pageNumbers.length; i++) {
+    pageNumbers[i].innerHTML = currentPage + 1;
+  }
+  
+  var btns = document.getElementsByClassName("switch-page");
+  var disabledStyle = "opacity: 0.5; pointer-events: none;";
+  
+  for (var i = 0; i < btns.length; i++) {
+    if (currentPage === 0) {
+      btns[i].style.cssText = i % 2 === 0 ? disabledStyle : "";
+    } else if (currentPage === maxPage) {
+      btns[i].style.cssText = i % 2 !== 0 ? disabledStyle : "";
+    } else {
+      btns[i].style.cssText = "";
+    }
+  }
+}
 
-        function searchGames(e) {
-            currentPage = 0;
-            setPageArrows();
-            games = []
-            for (var i = 0; i < gamesJson.length; i++) {
-                if (gamesJson[i]["name"].toLowerCase().includes(e.value.toLowerCase())) games.push(gamesJson[i]);
-            }
-            searchedGamesJson = games;
-            setPageArrows();
-            setGames(currentPage);
-        }
+function scrollToTopOfGames() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-        function setPageArrows() {
-            var maxPage = Math.ceil(searchedGamesJson.length / pageSize) - 1;
-            if (currentPage < 0) currentPage = 0;
-            if (currentPage > maxPage) currentPage = maxPage;
-            
-            var pageNumbers = document.getElementsByClassName("page-number");
-            for (var i = 0; i < pageNumbers.length; i++) {
-                pageNumbers[i].innerHTML = currentPage + 1;
-            }
-            
-            var btns = document.getElementsByClassName("switch-page");
-            var disabledStyle = "opacity: 0.5; pointer-events: none;";
-            
-            for (var i = 0; i < btns.length; i++) {
-                if (currentPage === 0) {
-                    btns[i].style.cssText = i % 2 === 0 ? disabledStyle : "";
-                } else if (currentPage === maxPage) {
-                    btns[i].style.cssText = i % 2 !== 0 ? disabledStyle : "";
-                } else {
-                    btns[i].style.cssText = "";
-                }
-            }
-        }
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.body.appendChild(particlesContainer);
+    
+    const particleCount = Math.floor(window.innerWidth / 5);
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 3 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        const duration = Math.random() * 10 + 5;
+        const delay = Math.random() * 5;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
 
-        function scrollToTopOfGames() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+document.addEventListener('DOMContentLoaded', function() {
+  loadGames();
+  hideLoading();
+  createParticles();
+});
 
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.className = 'particles';
-            document.body.appendChild(particlesContainer);
-            
-            const particleCount = Math.floor(window.innerWidth / 5);
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                const size = Math.random() * 3 + 1;
-                const posX = Math.random() * window.innerWidth;
-                const posY = Math.random() * window.innerHeight;
-                const duration = Math.random() * 10 + 5;
-                const delay = Math.random() * 5;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}px`;
-                particle.style.top = `${posY}px`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            loadGames();
-            hideLoading();
-            createParticles();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                document.getElementById('games-search-bar').focus();
-            }
-        });
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    document.getElementById('games-search-bar').focus();
+  }
+});
     </script>
 </body>
 </html>
