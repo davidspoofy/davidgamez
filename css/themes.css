@@ -1,38 +1,39 @@
+/* purple dih*/
 :root {
-     --inputbg: #3c096c;
+    --inputbg: #3c096c;
     --inputborder: #5a189a;
     --uibg: #240046;
     --textcolor: #fff;
     --bg: #10002b;
 }
 body {
- --inputbg: #3c096c;
+    --inputbg: #3c096c;
     --inputborder: #5a189a;
     --uibg: #240046;
     --textcolor: #fff;
     --bg: #10002b;
 }
+
 body[theme=threekho] {
- --inputbg: #28A018;
-    --inputborder: #0A8F00;
-    --uibg: #111111;
+    --inputbg: #7f32a8;
+    --inputborder: #a155c8;
+    --uibg: #5b217e;
     --textcolor: #fff;
-    --bg: #000000;
+    --bg: #41145b;
 }
 body[theme=art] {
-    --inputbg: #0284d4;
-    --inputborder: #0284d4;
-    --uibg: #0e1213;
-    --textcolor: #fffff;
-    --bg: #1a2023;
+    --inputbg: #6a1a8c;
+    --inputborder: #8e2b9c;
+    --uibg: #3d0e5c;
+    --textcolor: #fff;
+    --bg: #2b0847;
 }
 body[theme=dogcat] {
-    --inputbg: #537294;
-    --inputborder: #30719c;
-    --uibg: #2a7491;
+    --inputbg: #5c357f;
+    --inputborder: #8a48b5;
+    --uibg: #492a63;
     --textcolor: #fff;
-    --bg: url("/img/backgrounds/dogcat.svg"), rgb(26, 127, 158);
-  /* https://wallpaperaccess.com/full/115544.jpg */
+    --bg: #311d43;
 }
 body[theme=custom] {
     --inputbg: #3c096c;
@@ -56,25 +57,25 @@ body[theme=main] {
     --bg: #10002b;
 }
 body[theme=light] {
-    --inputbg: #bbbbbb;
-    --inputborder: #e6e6e6;
-    --uibg: #b3b3b3;
-    --textcolor: #1a1a1a;
-    --bg: #c5c5c5;
+    --inputbg: #a8a8c4;
+    --inputborder: #c4c4e0;
+    --uibg: #c0c0e3;
+    --textcolor: #2d2a42;
+    --bg: #e0e0f5;
 }
 body[theme=dark] {
-    --inputbg: #333333;
-    --inputborder: #444444;
-    --uibg: #242424;
+    --inputbg: #332d40;
+    --inputborder: #443c57;
+    --uibg: #242230;
     --textcolor: #fff;
-    --bg: #0c0c0c;
+    --bg: #0c0a1c;
 }
 body[theme=egamepass] {
-    --inputbg: #4f6ed1;
-    --inputborder: #5586e0;
-    --uibg: #185494;
-    --textcolor: #a7d3ff;
-    --bg: #16416f;
+    --inputbg: #4f4ed1;
+    --inputborder: #554fe0;
+    --uibg: #181494;
+    --textcolor: #c2c1ff;
+    --bg: #16126f;
 }
 body[theme=cools1te] {
     --inputbg: #a134dc;
@@ -84,81 +85,54 @@ body[theme=cools1te] {
     --bg: #8e14af;
 }
 
-
 body[theme=lattefalse] {
-    --inputbg: #9ca0b0;
-    /* overlay 0 */
-    --inputborder: #8c8fa1;
-    /* overlay 1 */
+    --inputbg: #9c99b0;
+    --inputborder: #8c88a1;
     --uibg: #ccd0da;
-    /* surface  0 */
-    --textcolor: #4c4f69;
-    /* text */
-    --bg: #eff1f5;
-    /* base */
+    --textcolor: #4c4a69;
+    --bg: #eff0f5;
     --shadow: 0px 0px 4px #ccd0da;
-    /* surface 0 */
 }
-body[theme=frappefalse] {    
-    --inputbg: #737994;
-    /* overlay 0 */
-    --inputborder: #838ba7;
-    /* overlay 1 */
-    --uibg: #414559;
-    /* surface  0 */
-    --textcolor: #cad3f5;
-    /* text */
-    --bg: #303446;
-    /* base */
-    --shadow: 0px 0px 4px #414559;
-    /* surface 0 */
+body[theme=frappefalse] {
+    --inputbg: #736d94;
+    --inputborder: #8379a7;
+    --uibg: #413d59;
+    --textcolor: #d3cbf5;
+    --bg: #302c46;
+    --shadow: 0px 0px 4px #413d59;
 }
 body[theme=macchiatofalse] {
-    --inputbg: #6e738d;
-    /* overlay 0 */
-    --inputborder: #8087a2;
-    /* overlay 1 */
-    --uibg: #363a4f;
-    /* surface  0 */
-    --textcolor: #cad3f5;
-    /* text */
-    --bg: #24273a;
-    /* base */
-    --shadow: 0px 0px 4px #363a4f;
-    /* surface 0 */
+    --inputbg: #6e6b8d;
+    --inputborder: #807a82;
+    --uibg: #36324f;
+    --textcolor: #d1caf5;
+    --bg: #24213a;
+    --shadow: 0px 0px 4px #36324f;
 }
 body[theme=mochafalse] {
-    --inputbg: #6c7086;
-    /* overlay 0 */
-    --inputborder: #7f849c;
-    /* overlay 1 */
-    --uibg: #313244;
-    /* surface  0 */
-    --textcolor: #cdd6f4;
-    /* text */
-    --bg: #1e1e2e;
-    /* base */
-    --shadow: 0px 0px 4px #313244;
-    /* surface 0 */
+    --inputbg: #6c6986;
+    --inputborder: #7f7c9c;
+    --uibg: #312f44;
+    --textcolor: #d6d3f4;
+    --bg: #1e1b2e;
+    --shadow: 0px 0px 4px #312f44;
 }
 
 body[theme=sunsetfalse] {
-    --inputbg: #537294;
-    --inputborder: #30719c;
-    --uibg: #2a7491;
+    --inputbg: #534b94;
+    --inputborder: #30269c;
+    --uibg: #2a1f91;
     --textcolor: #fff;
-    --bg: rgb(59, 67, 78);
-    /* https://wallhaven.cc/w/jxl3qp */
-    --shadow: 0px 0px 2px #a5dcf5;
+    --bg: #3b354e;
+    --shadow: 0px 0px 2px #a59cf5;
 }
 body[theme=mountainsfalse] {
-    --inputbg: #d37f7f;
-    --inputborder: #e28a8a;
-    --uibg: #d38493;
+    --inputbg: #9c7f9c;
+    --inputborder: #c48ae2;
+    --uibg: #a684d3;
     --textcolor: #fff;
-    --bg: #bf7483;
-    /* https://wallhaven.cc/w/l82kpr */
-    --shadow: 0px 0px 4px #bba29b;
+    --bg: #8b74bf;
+    --shadow: 0px 0px 4px #bba99b;
 }
 body[theme=vaporwavefalse] {
     --inputbg: #4b2d64;
@@ -166,104 +140,75 @@ body[theme=vaporwavefalse] {
     --uibg: #51166d;
     --textcolor: #fff;
     --bg: #61437a;
-    /* https://wallhaven.cc/w/l82kpr */
     --shadow: 0px 0px 4px #000000;
 }
 body[theme=seraphfalse] {
-    --inputbg: #000;
+    --inputbg: #1d0032;
     --inputborder: #fff;
-    --uibg: #000;
+    --uibg: #1d0032;
     --textcolor: #fff;
-    --bg: #222222;
-    /* seraph */
+    --bg: #32223a;
     --shadow: 0px 0px 4px #fff;
 }
 body[theme=nighttimefalse] {
-    --inputbg: #29374d;
+    --inputbg: #292d4d;
     --inputborder: #fff;
-    --uibg: #29374d;
+    --uibg: #292d4d;
     --textcolor: #fff;
-    --bg: #323853;
-    /* https://wallhaven.cc/w/l882py */
+    --bg: #323553;
     --shadow: 0px 0px 4px #fff;
 }
 
 
 
 body[theme=latte] {
-    --inputbg: #9ca0b0;
-    /* overlay 0 */
-    --inputborder: #8c8fa1;
-    /* overlay 1 */
+    --inputbg: #9c99b0;
+    --inputborder: #8c88a1;
     --uibg: #ccd0da;
-    /* surface  0 */
-    --textcolor: #4c4f69;
-    /* text */
-    --bg: #eff1f5;
-    /* base */
+    --textcolor: #4c4a69;
+    --bg: #eff0f5;
     --shadow: 0px 0px 4px #ccd0da;
-    /* surface 0 */
 }
 body[theme=frappe] {
-    --inputbg: #737994;
-    /* overlay 0 */
-    --inputborder: #838ba7;
-    /* overlay 1 */
-    --uibg: #414559;
-    /* surface  0 */
-    --textcolor: #cad3f5;
-    /* text */
-    --bg: #303446;
-    /* base */
-    --shadow: 0px 0px 4px #414559;
-    /* surface 0 */
+    --inputbg: #736d94;
+    --inputborder: #8379a7;
+    --uibg: #413d59;
+    --textcolor: #d3cbf5;
+    --bg: #302c46;
+    --shadow: 0px 0px 4px #413d59;
 }
 body[theme=macchiato] {
-    --inputbg: #6e738d;
-    /* overlay 0 */
-    --inputborder: #8087a2;
-    /* overlay 1 */
-    --uibg: #363a4f;
-    /* surface  0 */
-    --textcolor: #cad3f5;
-    /* text */
-    --bg: #24273a;
-    /* base */
-    --shadow: 0px 0px 4px #363a4f;
-    /* surface 0 */
+    --inputbg: #6e6b8d;
+    --inputborder: #807a82;
+    --uibg: #36324f;
+    --textcolor: #d1caf5;
+    --bg: #24213a;
+    --shadow: 0px 0px 4px #36324f;
 }
 body[theme=mocha] {
-    --inputbg: #6c7086;
-    /* overlay 0 */
-    --inputborder: #7f849c;
-    /* overlay 1 */
-    --uibg: #313244;
-    /* surface  0 */
-    --textcolor: #cdd6f4;
-    /* text */
-    --bg: #1e1e2e;
-    /* base */
-    --shadow: 0px 0px 4px #313244;
-    /* surface 0 */
+    --inputbg: #6c6986;
+    --inputborder: #7f7c9c;
+    --uibg: #312f44;
+    --textcolor: #d6d3f4;
+    --bg: #1e1b2e;
+    --shadow: 0px 0px 4px #312f44;
 }
 
 body[theme=sunset] {
-    --inputbg: #537294;
-    --inputborder: #30719c;
-    --uibg: #2a7491;
+    --inputbg: #534b94;
+    --inputborder: #30269c;
+    --uibg: #2a1f91;
     --textcolor: #fff;
-    --bg: url("/img/backgrounds/sunset_theme.jpg"), rgb(59, 67, 78);
-    /* https://wallhaven.cc/w/jxl3qp */
-    --shadow: 0px 0px 2px #a5dcf5;
+    --bg: url("/img/backgrounds/sunset_theme.jpg"), #3b354e;
+    --shadow: 0px 0px 2px #a59cf5;
 }
 body[theme=mountains] {
-    --inputbg: #d37f7f;
-    --inputborder: #e28a8a;
-    --uibg: #d38493;
+    --inputbg: #9c7f9c;
+    --inputborder: #c48ae2;
+    --uibg: #a684d3;
     --textcolor: #fff;
-    --bg: url("/img/backgrounds/mountains_theme.jpg"), #bf7483;
-    /* https://wallhaven.cc/w/l82kpr */
-    --shadow: 0px 0px 4px #bba29b;
+    --bg: url("/img/backgrounds/mountains_theme.jpg"), #8b74bf;
+    --shadow: 0px 0px 4px #bba99b;
 }
 body[theme=vaporwave] {
     --inputbg: #4b2d64;
@@ -271,25 +216,21 @@ body[theme=vaporwave] {
     --uibg: #51166d;
     --textcolor: #fff;
     --bg: url("/img/backgrounds/vaporwave_theme.jpg"), #61437a;
-    /* https://wallhaven.cc/w/l82kpr */
     --shadow: 0px 0px 4px #000000;
 }
 body[theme=seraph] {
-    --inputbg: #000;
+    --inputbg: #1d0032;
     --inputborder: #fff;
-    --uibg: #000;
+    --uibg: #1d0032;
     --textcolor: #fff;
-    --bg: url("/img/backgrounds/seraph_theme.png"), #1c1a1e;
-    /* seraph */
+    --bg: url("/img/backgrounds/seraph_theme.png"), #32223a;
     --shadow: 0px 0px 4px #fff;
 }
 body[theme=nighttime] {
-    --inputbg: #29374d;
+    --inputbg: #292d4d;
     --inputborder: #fff;
-    --uibg: #29374d;
+    --uibg: #292d4d;
     --textcolor: #fff;
-    --bg: url("/img/backgrounds/nighttime_theme.png"), #28272a;
-    /* https://wallhaven.cc/w/l882py */
+    --bg: url("/img/backgrounds/nighttime_theme.png"), #323553;
     --shadow: 0px 0px 4px #fff;
 }
-
