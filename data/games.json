@@ -5,6 +5,11 @@
 		"directory": "tekpro"
 	},
 	{
+		"name"": "GunSpin",
+		"image": "gnsp.webp",
+		"directory": "gunz"
+	},
+	{
 		"name": "The Gummibär Game",
 		"image": "cover.png",
 		"directory": "gum"
@@ -288,11 +293,6 @@
 		"name": "Mine Blocks",
 		"image": "cover.png",
 		"directory": "minors"
-	},
-	{
-		"name"": "GunSpin",
-		"image": "gnsp",
-		"directory": "gunz"
 	},
 	{
 		"name": "Wubzzy's Amazing Adventure",
