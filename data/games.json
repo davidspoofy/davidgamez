@@ -290,6 +290,11 @@
 		"directory": "minors"
 	},
 	{
+		"name"": "GunSpin",
+		"image": "gnsp",
+		"directory": "gunz"
+	},
+	{
 		"name": "Wubzzy's Amazing Adventure",
 		"image": "cover.png",
 		"directory": "wubz"
