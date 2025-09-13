@@ -5,7 +5,7 @@
 		"directory": "tekpro"
 	},
 	{
-		"name"": "GunSpin",
+		"name": "GunSpin",
 		"image": "gnsp.webp",
 		"directory": "gunz"
 	},
@@ -945,7 +945,7 @@
 		"image": "icon.png"
 	},
 	{
-		"name": "Geometry Dash (Scratch)",
+		"name": "Gunspin",
 		"directory": "geometrydash",
 		"image": "icon.png"
 	},
